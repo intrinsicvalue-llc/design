@@ -12,7 +12,7 @@ export default function ChangelogPage() {
     <PageShell
       current="/changelog"
       title="Changelog"
-      description={`Release history for Intrinsic Design and @intrinsic/tokens-css. Version and ISO timestamp on every entry — currently v${designVersion}.`}
+      description={`Release history for Intrinsic Design and @intrinsic/tokens-css. Local time shown; hover for UTC. Currently v${designVersion}.`}
     >
       <ReleaseTimeline releases={releases} />
     </PageShell>

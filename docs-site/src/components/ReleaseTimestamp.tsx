@@ -30,30 +30,31 @@ export function ReleaseTimestamp({ releasedAt }: { releasedAt: string }) {
     );
   }
 
-  let localized: string | null = null;
-  if (isClient) {
-    try {
-      localized = formatLocalizedInstant(utc);
-    } catch {
-      localized = null;
-    }
+  if (!isClient) {
+    return (
+      <p
+        className="mt-3 text-[14px] tabular-nums text-[var(--color-intrinsic-muted)] sm:text-[15px]"
+        aria-hidden
+      >
+        …
+      </p>
+    );
+  }
+
+  let localized: string;
+  try {
+    localized = formatLocalizedInstant(utc);
+  } catch {
+    localized = utc;
   }
 
   return (
-    <div className="mt-3 space-y-1">
-      {localized ? (
-        <time
-          dateTime={dateTime}
-          title={utc}
-          className="block text-[14px] tabular-nums text-[var(--color-intrinsic-fg)] sm:text-[15px]"
-        >
-          {localized}
-        </time>
-      ) : null}
-      <p className="font-mono text-[12px] tabular-nums text-[var(--color-intrinsic-muted)] sm:text-[13px]">
-        {utc}
-        <span className="ml-2 text-[11px] uppercase tracking-wide">UTC</span>
-      </p>
-    </div>
+    <time
+      dateTime={dateTime}
+      title={utc}
+      className="mt-3 block w-fit cursor-default text-[14px] tabular-nums text-[var(--color-intrinsic-muted)] underline decoration-dotted decoration-[var(--color-intrinsic-line)] underline-offset-[3px] sm:text-[15px]"
+    >
+      {localized}
+    </time>
   );
 }
