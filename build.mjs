@@ -292,6 +292,39 @@ function buildThemeManifest(themes) {
   );
 }
 
+function buildChangelogMarkdown() {
+  const data = readJSON("changelog/releases.json");
+  const lines = [
+    "# Changelog",
+    "",
+    "Release history for **Intrinsic Design** and `@intrinsic/tokens-css`.",
+    "",
+    "Canonical source: `changelog/releases.json` (reference site renders from JSON).",
+    "Versions match git tags on `intrinsicvalue-llc/design`.",
+    "",
+  ];
+
+  for (const release of data.releases) {
+    lines.push(`## ${release.version} — ${release.date}`);
+    lines.push("");
+    lines.push(`### ${release.title}`);
+    lines.push("");
+    lines.push(release.summary);
+    lines.push("");
+    for (const section of release.sections) {
+      lines.push(`**${section.label}**`);
+      for (const item of section.items) {
+        lines.push(`- ${item}`);
+      }
+      lines.push("");
+    }
+    lines.push("---");
+    lines.push("");
+  }
+
+  return lines.join("\n").replace(/\n---\n\n$/, "\n");
+}
+
 function mirrorCssToNpm(fileName, content) {
   return [
     { path: path.join(DIST_CSS, fileName), content },
@@ -331,6 +364,8 @@ function main() {
     path: path.join(ROOT, "dist/themes.json"),
     content: buildThemeManifest(themes),
   });
+
+  outputs.push({ path: path.join(ROOT, "CHANGELOG.md"), content: buildChangelogMarkdown() });
 
   let changed = 0;
   for (const { path: filePath, content } of outputs) {

@@ -1,0 +1,96 @@
+{
+  "$comment": "Canonical changelog — site renders this; build.mjs generates CHANGELOG.md",
+  "releases": [
+    {
+      "version": "1.0.5",
+      "date": "2026-06-13",
+      "title": "Keystone admin console typography",
+      "summary": "Semantic type roles and compose utilities for keystone.intrinsicvalue.llc — tables, tabs, and monospace IDs at a readable admin scale instead of ad-hoc text-xs and text-sm.",
+      "featured": true,
+      "sections": [
+        {
+          "label": "Added",
+          "items": [
+            "Keystone typography tokens: body, label, tab, tableCell, tableCode (15px body; labels at 14px).",
+            "keystone.utilities.css — .iv-body, .iv-label, .iv-tab, .iv-table, .iv-table-code.",
+            "Foundation mono font stack (--intrinsic-font-mono) for ID and audit columns.",
+            "Users list acceptance specimen on the reference site /themes page."
+          ]
+        },
+        {
+          "label": "Documented",
+          "items": [
+            "Admin console typography rules in patterns/LIST_DETAIL.md."
+          ]
+        },
+        {
+          "label": "Migration",
+          "items": [
+            "Bump @intrinsic/tokens-css to ^1.0.5.",
+            "Import @intrinsic/tokens-css/keystone.utilities.css after the Keystone theme.",
+            "Replace text-xs / text-sm in admin UI with .iv-* classes."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.0.4",
+      "date": "2026-06",
+      "title": "Version badge sync",
+      "summary": "The reference site reads its version from npm/tokens-css/package.json so the homepage always matches the published package.",
+      "sections": [
+        {
+          "label": "Changed",
+          "items": [
+            "Reference site version badge reads from the published tokens-css package."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.0.2",
+      "date": "2026-06",
+      "title": "Reliable token publishing",
+      "summary": "GitHub Actions can publish @intrinsicvalue-llc/tokens-css without a separate npm PAT when org workflow permissions are configured.",
+      "sections": [
+        {
+          "label": "Fixed",
+          "items": [
+            "Publish workflow auth for GitHub Packages.",
+            "Tokens publish via GITHUB_TOKEN from the design repo."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.0.1",
+      "date": "2026-06",
+      "title": "First GitHub Packages release",
+      "summary": "Web apps install design tokens from GitHub Packages using the @intrinsic/tokens-css npm alias.",
+      "sections": [
+        {
+          "label": "Added",
+          "items": [
+            "First publish of @intrinsicvalue-llc/tokens-css to GitHub Packages."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-06",
+      "title": "Intrinsic Design launch",
+      "summary": "Company-wide tokens, themes, patterns, voice, and ADRs — with generated CSS, npm package, Swift SPM, and the reference site.",
+      "sections": [
+        {
+          "label": "Added",
+          "items": [
+            "Foundation tokens and product themes (Tasteful, Keystone, intrinsic-www).",
+            "Generated CSS (dist/, npm/tokens-css) and IntrinsicDesign Swift package.",
+            "Pattern and voice specs; reference site at design.intrinsicvalue.llc."
+          ]
+        }
+      ]
+    }
+  ]
+}

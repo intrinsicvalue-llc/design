@@ -1,20 +1,20 @@
-import { Markdown } from "@/components/Markdown";
 import { PageShell } from "@/components/SiteChrome";
-import { getDesignVersion, readChangelog } from "@/lib/design-data";
+import { ReleaseTimeline } from "@/components/ReleaseTimeline";
+import { getChangelogReleases, getDesignVersion } from "@/lib/design-data";
 
 export const metadata = { title: "Changelog" };
 
 export default function ChangelogPage() {
-  const body = readChangelog();
+  const releases = getChangelogReleases();
   const designVersion = getDesignVersion();
 
   return (
     <PageShell
       current="/changelog"
       title="Changelog"
-      description={`What changed in Intrinsic Design — currently v${designVersion}. Plain-English release notes for tokens, patterns, and the reference site.`}
+      description={`Release history for Intrinsic Design and @intrinsic/tokens-css. Currently v${designVersion}.`}
     >
-      <Markdown source={body} />
+      <ReleaseTimeline releases={releases} />
     </PageShell>
   );
 }

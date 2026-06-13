@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
+import type { ChangelogData } from "./changelog-types";
 import type { Foundation, Theme } from "./design-types";
 import { NAV, PATTERNS, VOICE_DOCS, cssVarsForTheme, themeVar } from "./design-types";
 
 export { NAV, PATTERNS, VOICE_DOCS, cssVarsForTheme, themeVar };
 export type { Foundation, Theme, ThemeColors } from "./design-types";
+export type { AdrRecord, ChangelogData, Release, ReleaseSection } from "./changelog-types";
 
 const REPO_ROOT = path.join(process.cwd(), "..");
 
@@ -40,6 +42,10 @@ export function readMarkdown(relativePath: string): string {
 
 export function readChangelog(): string {
   return readMarkdown("CHANGELOG.md");
+}
+
+export function getChangelogReleases(): ChangelogData["releases"] {
+  return readJson<ChangelogData>("changelog/releases.json").releases;
 }
 
 export function readPattern(slug: string): { title: string; body: string } | null {
