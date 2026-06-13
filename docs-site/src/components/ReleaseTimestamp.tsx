@@ -30,7 +30,14 @@ export function ReleaseTimestamp({ releasedAt }: { releasedAt: string }) {
     );
   }
 
-  const localized = isClient ? formatLocalizedInstant(utc) : null;
+  let localized: string | null = null;
+  if (isClient) {
+    try {
+      localized = formatLocalizedInstant(utc);
+    } catch {
+      localized = null;
+    }
+  }
 
   return (
     <div className="mt-3 space-y-1">

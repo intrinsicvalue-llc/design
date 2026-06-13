@@ -26,13 +26,18 @@ export function parseReleasedAt(value: string): ParsedReleaseTime {
   return { dateTime: utc, utc, precision: "instant" };
 }
 
-/** Localized display for the viewer's browser timezone. Server fallback: UTC only. */
+/** Localized display for the viewer's browser timezone. */
 export function formatLocalizedInstant(isoUtc: string, locale?: string): string {
+  const date = new Date(isoUtc);
+  // dateStyle + timeStyle cannot be combined with timeZoneName (throws in V8/WebKit).
   return new Intl.DateTimeFormat(locale, {
-    dateStyle: "medium",
-    timeStyle: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
     timeZoneName: "short",
-  }).format(new Date(isoUtc));
+  }).format(date);
 }
 
 export function formatBackfillLabel(value: string, precision: ReleasePrecision): string {
