@@ -19,9 +19,9 @@ Manual publish: **Actions → Publish tokens-css → Run workflow** (bump `npm/t
 
 ### If publish fails (org `intrinsicvalue-llc`)
 
-1. **Org → Settings → Actions → General → Workflow permissions** → **Read and write permissions**.
-2. **Org → Settings → Actions → General → Allow GitHub Actions to create and approve pull requests** — not required; ensure packages are enabled for Actions.
-3. Add repo secret **`NPM_PUBLISH_TOKEN`** (classic PAT or fine-grained with `write:packages` + `read:packages` on `design`). Workflow prefers this over `GITHUB_TOKEN` when set.
+1. **Org → Settings → Actions → General → Workflow permissions** → **Read and write permissions** (required for `GITHUB_TOKEN` to publish).
+2. Do **not** rely on **`NPM_PUBLISH_TOKEN`** for this workflow — a bad PAT in that secret blocks publish. Publish uses **`GITHUB_TOKEN`** from the `design` repo (same repo as the package).
+3. Manual dispatch: bump `npm/tokens-css/package.json` version first if the version already exists on the registry.
 4. Re-run workflow or push a new tag `v*.*.*`.
 
 First publish creates the package; product repos need **`NODE_AUTH_TOKEN`** with `read:packages` (Vercel env + local export).
