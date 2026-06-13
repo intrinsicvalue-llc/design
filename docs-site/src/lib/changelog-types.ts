@@ -5,7 +5,8 @@ export type ReleaseSection = {
 
 export type Release = {
   version: string;
-  date: string;
+  /** UTC instant — e.g. 2026-06-13T23:11:08Z. Month-only (2026-06) for legacy backfill. */
+  releasedAt: string;
   title: string;
   summary: string;
   featured?: boolean;

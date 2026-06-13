@@ -59,7 +59,7 @@ export default function HomePage() {
               Version
             </p>
             <Link href="/changelog">
-              <p className="mt-1 font-mono text-2xl font-semibold text-[var(--color-intrinsic-fg)] hover:text-[var(--color-intrinsic-accent)]">
+              <p className="mt-1 font-mono text-3xl font-semibold tracking-tight text-[var(--color-intrinsic-fg)] hover:text-[var(--color-intrinsic-accent)]">
                 v{designVersion}
               </p>
             </Link>

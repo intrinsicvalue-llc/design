@@ -2,10 +2,12 @@
 
 Release history for **Intrinsic Design** and `@intrinsic/tokens-css`.
 
-Canonical source: `changelog/releases.json` (reference site renders from JSON).
+Canonical source: `changelog/releases.json`. Store `releasedAt` in UTC with a trailing `Z` (`npm run changelog:now`).
 Versions match git tags on `intrinsicvalue-llc/design`.
 
-## 1.0.5 — 2026-06-13
+## v1.0.5
+
+**Released:** 2026-06-13T23:11:08Z
 
 ### Keystone admin console typography
 
@@ -27,7 +29,9 @@ Semantic type roles and compose utilities for keystone.intrinsicvalue.llc — ta
 
 ---
 
-## 1.0.4 — 2026-06
+## v1.0.4
+
+**Released:** 2026-06
 
 ### Version badge sync
 
@@ -38,7 +42,9 @@ The reference site reads its version from npm/tokens-css/package.json so the hom
 
 ---
 
-## 1.0.2 — 2026-06
+## v1.0.2
+
+**Released:** 2026-06
 
 ### Reliable token publishing
 
@@ -50,7 +56,9 @@ GitHub Actions can publish @intrinsicvalue-llc/tokens-css without a separate npm
 
 ---
 
-## 1.0.1 — 2026-06
+## v1.0.1
+
+**Released:** 2026-06
 
 ### First GitHub Packages release
 
@@ -61,7 +69,9 @@ Web apps install design tokens from GitHub Packages using the @intrinsic/tokens-
 
 ---
 
-## 1.0.0 — 2026-06
+## v1.0.0
+
+**Released:** 2026-06
 
 ### Intrinsic Design launch
 

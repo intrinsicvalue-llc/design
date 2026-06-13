@@ -1,4 +1,5 @@
 import type { Release, ReleaseSection } from "@/lib/changelog-types";
+import { ReleaseTimestamp } from "@/components/ReleaseTimestamp";
 
 const SECTION_TONE: Record<string, string> = {
   Added: "text-emerald-700 dark:text-emerald-400",
@@ -36,17 +37,19 @@ function ReleaseEntry({ release, latest }: { release: Release; latest?: boolean 
           : "scroll-mt-24 border-t border-[var(--color-intrinsic-line)] pt-10 first:border-t-0 first:pt-0"
       }
     >
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <time
-          dateTime={release.date.length === 7 ? `${release.date}-01` : release.date}
-          className="text-[13px] tabular-nums text-[var(--color-intrinsic-muted)]"
-        >
-          {formatReleaseDate(release.date)}
-        </time>
-        <span className="font-mono text-[12px] text-[var(--color-intrinsic-muted)]">v{release.version}</span>
-      </div>
+      <p
+        className={
+          latest
+            ? "font-mono text-[32px] font-semibold leading-none tracking-tight text-[var(--color-intrinsic-fg)] sm:text-4xl"
+            : "font-mono text-[22px] font-semibold leading-none tracking-tight text-[var(--color-intrinsic-fg)] sm:text-2xl"
+        }
+      >
+        v{release.version}
+      </p>
 
-      <h2 className="mt-3 text-[22px] font-semibold tracking-tight text-[var(--color-intrinsic-fg)] sm:text-2xl">
+      <ReleaseTimestamp releasedAt={release.releasedAt} />
+
+      <h2 className="mt-4 text-[20px] font-semibold tracking-tight text-[var(--color-intrinsic-fg)] sm:text-[22px]">
         {release.title}
       </h2>
 
@@ -59,21 +62,6 @@ function ReleaseEntry({ release, latest }: { release: Release; latest?: boolean 
       ) : null}
     </article>
   );
-}
-
-function formatReleaseDate(iso: string): string {
-  if (iso.length === 7) {
-    const [year, month] = iso.split("-");
-    return new Date(Number(year), Number(month) - 1, 1).toLocaleDateString("en-US", {
-      month: "long",
-      year: "numeric",
-    });
-  }
-  return new Date(iso).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
 }
 
 export function ReleaseTimeline({ releases }: { releases: Release[] }) {

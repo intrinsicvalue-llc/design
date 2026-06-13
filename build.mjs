@@ -299,13 +299,15 @@ function buildChangelogMarkdown() {
     "",
     "Release history for **Intrinsic Design** and `@intrinsic/tokens-css`.",
     "",
-    "Canonical source: `changelog/releases.json` (reference site renders from JSON).",
+    "Canonical source: `changelog/releases.json`. Store `releasedAt` in UTC with a trailing `Z` (`npm run changelog:now`).",
     "Versions match git tags on `intrinsicvalue-llc/design`.",
     "",
   ];
 
   for (const release of data.releases) {
-    lines.push(`## ${release.version} — ${release.date}`);
+    lines.push(`## v${release.version}`);
+    lines.push("");
+    lines.push(`**Released:** ${release.releasedAt}`);
     lines.push("");
     lines.push(`### ${release.title}`);
     lines.push("");

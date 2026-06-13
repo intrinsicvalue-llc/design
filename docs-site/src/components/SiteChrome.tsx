@@ -12,7 +12,7 @@ export function SiteHeader({ current, designVersion }: { current?: string; desig
           </Link>
           <Link
             href="/changelog"
-            className="rounded-full bg-[var(--color-intrinsic-line)] px-2 py-0.5 font-mono text-[11px] text-[var(--color-intrinsic-muted)] hover:text-[var(--color-intrinsic-fg)]"
+            className="rounded-full bg-[var(--color-intrinsic-line)] px-2.5 py-0.5 font-mono text-[12px] font-semibold text-[var(--color-intrinsic-fg)] hover:bg-[var(--color-intrinsic-accent)]/15"
           >
             v{designVersion}
           </Link>
