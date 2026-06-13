@@ -49,6 +49,12 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 **Context:** Keystone, website, and future apps are separate repos; design must be a sibling dependency.  
 **Consequence:** Product repos use git submodule `design/` + `@intrinsic/tokens-css` + SPM `IntrinsicDesign`. See `adr/DESIGN_REPO.md`.
 
+## ADR-008 — Publish web tokens to GitHub Packages (2026-06)
+
+**Decision:** Ship `@intrinsicvalue-llc/tokens-css` on GitHub Packages; product repos install via npm alias as `@intrinsic/tokens-css`.  
+**Context:** Vercel and other deploy targets cannot reliably clone private git submodules; `file:design/...` fails outside GitHub Actions. GitHub Packages scope must match org name.  
+**Consequence:** Tag `v*.*.*` triggers publish workflow; `CONSUMPTION.md` + `PUBLISH_TOKENS_CSS.md`; submodule optional for web CI/deploy; CSS import paths unchanged via alias.
+
 ---
 
 *Append new ADRs at the bottom. Never delete — supersede with a new ADR that references the old one.*

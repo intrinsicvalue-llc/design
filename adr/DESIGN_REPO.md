@@ -16,15 +16,15 @@ Intrinsic Value ships multiple products (Tasteful, Keystone, website, Venn Gogh,
 
 Consumption:
 
-- **Web:** npm package `@intrinsic/tokens-css` (from `npm/tokens-css/`)
+- **Web:** `@intrinsicvalue-llc/tokens-css` on GitHub Packages (install alias `@intrinsic/tokens-css` in product repos)
 - **Apple:** Swift Package `IntrinsicDesign` (from `swift/`)
-- **Integration:** git submodule at `design/` in each product repo
+- **Integration:** git submodule at `design/` for token source, patterns, voice (optional for web deploy)
 
 ## Consequences
 
-- Token changes release from `design` on its own semver tags
-- Product repos pin versions deliberately
-- CI checks out submodules recursively
+- Token changes release from `design` on its own semver tags → publish workflow
+- Product repos pin npm version in `package.json`; bump on design releases
+- CI/deploy: GitHub Packages auth (`NODE_AUTH_TOKEN` / `GITHUB_TOKEN`); submodule for iOS and token editing
 - Agents read one canonical path for patterns and tokens
 
 ## Supersedes

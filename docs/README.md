@@ -12,7 +12,8 @@ Company-wide design foundation for every Intrinsic Value product.
 | Doc | Purpose |
 |-----|---------|
 | [`README.md`](../README.md) | Quick start, structure, consumption summary |
-| [`docs/CONSUMPTION.md`](CONSUMPTION.md) | Submodule, npm, SPM, CI wiring in product repos |
+| [`docs/CONSUMPTION.md`](CONSUMPTION.md) | GitHub Packages, submodule, SPM, CI in product repos |
+| [`docs/PUBLISH_TOKENS_CSS.md`](PUBLISH_TOKENS_CSS.md) | Release `@intrinsicvalue-llc/tokens-css` |
 | [`docs/DEPLOY_DOCS_SITE.md`](DEPLOY_DOCS_SITE.md) | Vercel + DNS for reference site |
 | [`docs/MILESTONES.md`](MILESTONES.md) | Pointer to cross-repo platform milestones |
 
@@ -53,4 +54,4 @@ Platform milestone week (Keystone, app.tasteful.to, this site):
 
 ## Versioning
 
-Semver git tags on this repo (e.g. **`v1.0.0`**). Product repos pin via submodule + npm `file:` or git tag.
+Semver git tags on this repo (e.g. **`v1.0.0`**) publish **`@intrinsicvalue-llc/tokens-css`**. Product repos pin via npm alias `@intrinsic/tokens-css`.

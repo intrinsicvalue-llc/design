@@ -1,15 +1,35 @@
-# @intrinsic/tokens-css
+# @intrinsicvalue-llc/tokens-css
 
 CSS design tokens for Intrinsic Value web apps. Generated from `intrinsicvalue-llc/design`.
 
-## Install
+Published to **GitHub Packages** as `@intrinsicvalue-llc/tokens-css`. Product repos depend via npm alias as `@intrinsic/tokens-css`.
+
+## Install (product repos)
+
+**`.npmrc`:**
+
+```ini
+@intrinsicvalue-llc:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
+**`package.json`:**
+
+```json
+"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.0"
+```
 
 ```bash
-# GitHub (tag pin — production)
-npm install github:intrinsicvalue-llc/design#v1.0.0
+export NODE_AUTH_TOKEN=ghp_...   # read:packages
+npm install
+```
 
-# Local sibling clone (development)
-npm install file:../../../design/npm/tokens-css
+See [`docs/CONSUMPTION.md`](../../docs/CONSUMPTION.md) and [`docs/PUBLISH_TOKENS_CSS.md`](../../docs/PUBLISH_TOKENS_CSS.md).
+
+## Local development (design repo)
+
+```bash
+npm install file:../npm/tokens-css   # docs-site and sibling paths
 ```
 
 ## Usage (Tailwind v4)
