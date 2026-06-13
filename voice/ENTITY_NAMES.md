@@ -6,14 +6,14 @@ Never blur these in UI, SQL, docs, or voice interfaces.
 
 | Term | Who | UI label |
 |------|-----|----------|
-| **Admin** | `@intrinsicvalue.llc` staff | Platform → Admins |
-| **User** | Tasteful end customer | Operate → People → User detail |
-| **Household** | Shared billing / meal group | Operate → Households → Household detail |
+| **Admin** | `@intrinsicvalue.llc` staff | Platform → Admins → Admin detail |
+| **User** | Tasteful end customer | Users → User detail |
+| **Household** | Shared billing / meal group | Households → Household detail |
 
 | Say | Don't say |
 |-----|-----------|
 | Admin sign-in | Keystone user, operator login |
-| User detail page | User 360, customer 360 |
+| User detail · Admin detail | User details, Admin details, User 360, customer 360 |
 | People (list) | Users (ambiguous with auth.users) |
 
 Source: `docs/KEYSTONE.md` (keystone repo)
