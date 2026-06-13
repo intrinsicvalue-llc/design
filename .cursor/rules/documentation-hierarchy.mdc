@@ -1,0 +1,29 @@
+---
+description: Documentation hierarchy — single sources of truth for agents
+alwaysApply: true
+---
+
+# Documentation hierarchy
+
+## Read order
+
+1. **`docs/README.md`**
+2. **`principles/UNIVERSAL.md`** before UI changes in any consumer repo
+3. **`docs/CONSUMPTION.md`** when wiring a product repo
+
+## Single sources
+
+| Topic | Canonical |
+|-------|-----------|
+| Tokens | `tokens/foundation.json`, `tokens/themes/*.json` |
+| Patterns | `patterns/` + live site |
+| Voice / copy | `voice/` + live site |
+| ADRs | `adr/DESIGN_ADR.md` |
+| Deploy reference site | `docs/DEPLOY_DOCS_SITE.md` |
+| Cross-repo milestones | tasteful `docs/PLATFORM_MILESTONES.md` |
+
+## Hard rules
+
+- Generated artifacts (`dist/`, `swift/Sources`, npm package) must match `npm run build` output.
+- Product repos consume via submodule — do not fork token JSON in tasteful/keystone/website.
+- Live site is the human-friendly view; this repo is the machine source.

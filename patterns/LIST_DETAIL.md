@@ -45,5 +45,5 @@ Fall through to `EMPTY_STATE.md` — never a blank screen.
 
 ## References
 
-- `docs/keystone/KEYSTONE.md` — page structure
+- `docs/KEYSTONE.md` — page structure (keystone repo)
 - `RestaurantsView.swift`, `MealsView.swift` — Tasteful lists

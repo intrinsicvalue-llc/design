@@ -16,7 +16,7 @@ Never blur these in UI, SQL, docs, or voice interfaces.
 | User detail page | User 360, customer 360 |
 | People (list) | Users (ambiguous with auth.users) |
 
-Source: `docs/keystone/KEYSTONE.md`
+Source: `docs/KEYSTONE.md` (keystone repo)
 
 ## Tasteful (consumer app)
 

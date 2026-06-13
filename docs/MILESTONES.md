@@ -1,8 +1,8 @@
 # Milestones
 
-Cross-repo platform ships are indexed in the **tasteful** repo:
+Cross-repo platform ships are indexed in the **tasteful** repo.
 
-**[`intrinsicvalue-llc/tasteful` → `docs/PLATFORM_MILESTONES.md`](https://github.com/intrinsicvalue-llc/tasteful/blob/main/docs/PLATFORM_MILESTONES.md)**
+**Hub:** [`docs/README.md`](README.md) · **Index:** [`intrinsicvalue-llc/tasteful` → `docs/PLATFORM_MILESTONES.md`](https://github.com/intrinsicvalue-llc/tasteful/blob/main/docs/PLATFORM_MILESTONES.md)
 
 June 2026 highlights:
 - [Keystone](https://keystone.intrinsicvalue.llc) — operator admin
