@@ -41,6 +41,21 @@ className="border-[var(--color-tasteful-line)]"
 
 Foundation: `var(--intrinsic-space-md)`, `var(--intrinsic-radius-card)`.
 
+Keystone admin console typography:
+
+```css
+@import "@intrinsic/tokens-css/keystone.utilities.css";
+```
+
+```tsx
+className="iv-body text-[var(--color-keystone-muted)]"
+className="iv-table"
+className="iv-table-code"
+className="iv-tab"
+```
+
+Tokens: `--keystone-type-body-size` (15px), `text-keystone-body` in Tailwind v4 `@theme`.
+
 ## Themes
 
 | Surface | Theme | CSS prefix |

@@ -48,6 +48,99 @@ function cssVar(prefix, name) {
   return `--color-${prefix}-${name}`;
 }
 
+function camelToKebab(s) {
+  return s.replace(/([A-Z])/g, "-$1").toLowerCase();
+}
+
+function typeVar(prefix, role, prop) {
+  return `--${prefix}-type-${role}-${prop}`;
+}
+
+function buildTypographyThemeEntries(theme) {
+  if (!theme.typography) return [];
+  const p = theme.cssPrefix;
+  const entries = [];
+  for (const [role, spec] of Object.entries(theme.typography)) {
+    if (role.startsWith("$")) continue;
+    const slug = camelToKebab(role);
+    entries.push(`  ${typeVar(p, slug, "size")}: ${spec.sizePx}px;`);
+    entries.push(`  ${typeVar(p, slug, "line-height")}: ${spec.lineHeight};`);
+    entries.push(`  ${typeVar(p, slug, "weight")}: ${spec.weight};`);
+    if (spec.letterSpacingEm != null) {
+      entries.push(`  ${typeVar(p, slug, "letter-spacing")}: ${spec.letterSpacingEm}em;`);
+    }
+    entries.push(`  --text-${p}-${slug}: ${spec.sizePx}px;`);
+    entries.push(`  --text-${p}-${slug}--line-height: ${spec.lineHeight};`);
+    entries.push(`  --font-weight-${p}-${slug}: ${spec.weight};`);
+  }
+  return entries;
+}
+
+function buildThemeUtilitiesCSS(theme) {
+  if (!theme.typography) return null;
+  const p = theme.cssPrefix;
+  const density = theme.density ?? { rowPaddingY: 10, rowPaddingX: 12 };
+  const lines = [GENERATED_BANNER];
+
+  lines.push("/* Semantic admin console typography — compose with .iv-* instead of text-xs/text-sm */");
+  lines.push(".iv-body {");
+  lines.push(`  font-size: var(${typeVar(p, "body", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "body", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "body", "weight")});`);
+  lines.push("}\n");
+
+  lines.push(".iv-label {");
+  lines.push(`  font-size: var(${typeVar(p, "label", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "label", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "label", "weight")});`);
+  lines.push(`  letter-spacing: var(${typeVar(p, "label", "letter-spacing")}, normal);`);
+  lines.push("}\n");
+
+  lines.push(".iv-tab {");
+  lines.push(`  font-size: var(${typeVar(p, "tab", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "tab", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "tab", "weight")});`);
+  lines.push("}\n");
+
+  lines.push(".iv-table-code {");
+  lines.push("  font-family: var(--intrinsic-font-mono);");
+  lines.push(`  font-size: var(${typeVar(p, "table-code", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "table-code", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "table-code", "weight")});`);
+  lines.push("}\n");
+
+  lines.push(".iv-table {");
+  lines.push("  width: 100%;");
+  lines.push(`  font-size: var(${typeVar(p, "table-cell", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "table-cell", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "table-cell", "weight")});`);
+  lines.push("}\n");
+
+  lines.push(".iv-table thead th {");
+  lines.push(`  font-size: var(${typeVar(p, "label", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "label", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "label", "weight")});`);
+  lines.push(`  letter-spacing: var(${typeVar(p, "label", "letter-spacing")}, normal);`);
+  lines.push(`  color: var(${cssVar(p, "muted")});`);
+  lines.push(`  padding: ${density.rowPaddingY}px ${density.rowPaddingX + 4}px;`);
+  lines.push("  text-align: left;");
+  lines.push("}\n");
+
+  lines.push(".iv-table tbody td {");
+  lines.push(`  padding: ${density.rowPaddingY}px ${density.rowPaddingX + 4}px;`);
+  lines.push("}\n");
+
+  lines.push(".iv-table tbody td .iv-table-code,");
+  lines.push(".iv-table tbody td.iv-table-code {");
+  lines.push("  font-family: var(--intrinsic-font-mono);");
+  lines.push(`  font-size: var(${typeVar(p, "table-code", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "table-code", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "table-code", "weight")});`);
+  lines.push("}\n");
+
+  return lines.join("\n");
+}
+
 function buildThemeCSS(theme) {
   const p = theme.cssPrefix;
   const c = theme.color;
@@ -56,6 +149,9 @@ function buildThemeCSS(theme) {
   lines.push(GENERATED_BANNER);
   lines.push("@theme {");
   lines.push(`  --font-sans: var(--intrinsic-font-sans);`);
+  if (theme.typography) {
+    lines.push(`  --font-mono: var(--intrinsic-font-mono);`);
+  }
   if (theme.meta.id === "tasteful-www" || theme.meta.id === "intrinsic-www") {
     lines.push(`  --font-display: var(--intrinsic-font-display);`);
   }
@@ -66,6 +162,9 @@ function buildThemeCSS(theme) {
   lines.push(`  ${cssVar(p, "accent")}: ${c.accent.light};`);
   if (c.error) {
     lines.push(`  ${cssVar(p, "error")}: ${c.error.light};`);
+  }
+  for (const entry of buildTypographyThemeEntries(theme)) {
+    lines.push(entry);
   }
   lines.push("}\n");
 
@@ -104,6 +203,7 @@ function buildFoundationCSS(foundation) {
   lines.push(":root {");
   lines.push(`  --intrinsic-font-sans: ${foundation.typography.fontStackSans};`);
   lines.push(`  --intrinsic-font-display: ${foundation.typography.fontStackDisplay};`);
+  lines.push(`  --intrinsic-font-mono: ${foundation.typography.fontStackMono};`);
   for (const [key, px] of Object.entries(foundation.space)) {
     lines.push(`  --intrinsic-space-${key}: ${px}px;`);
   }
@@ -217,6 +317,10 @@ function main() {
   for (const theme of themes) {
     const css = buildThemeCSS(theme);
     outputs.push(...mirrorCssToNpm(`${theme.meta.id}.theme.css`, css));
+    const utilities = buildThemeUtilitiesCSS(theme);
+    if (utilities) {
+      outputs.push(...mirrorCssToNpm(`${theme.meta.id}.utilities.css`, utilities));
+    }
   }
 
   const swift = buildSwift(foundation);

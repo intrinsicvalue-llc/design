@@ -7,11 +7,19 @@ export type ThemeColors = {
   error?: { light: string; dark: string };
 };
 
+export type ThemeTypographyRole = {
+  sizePx: number;
+  lineHeight: number;
+  weight: number;
+  letterSpacingEm?: number;
+};
+
 export type Theme = {
   meta: { id: string; label: string; surface: string };
   cssPrefix: string;
   color: ThemeColors;
   density?: { rowPaddingY: number; rowPaddingX: number };
+  typography?: Record<string, ThemeTypographyRole>;
   variants?: Record<string, unknown>;
 };
 

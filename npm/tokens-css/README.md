@@ -41,3 +41,11 @@ npm install file:../npm/tokens-css   # docs-site and sibling paths
 ```
 
 Semantic variables: `var(--color-tasteful-accent)`, `var(--intrinsic-space-md)`.
+
+Keystone admin console utilities:
+
+```css
+@import "@intrinsic/tokens-css/keystone.utilities.css";
+```
+
+Classes: `.iv-body`, `.iv-label`, `.iv-tab`, `.iv-table`, `.iv-table-code`.

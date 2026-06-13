@@ -1,5 +1,6 @@
 "use client";
 
+import { KeystoneAdminSpecimen } from "@/components/KeystoneAdminSpecimen";
 import type { Theme } from "@/lib/design-types";
 import { cssVarsForTheme } from "@/lib/design-types";
 
@@ -95,14 +96,7 @@ export function PatternSpecimen({ themeId }: { themeId: string }) {
         </button>
       </div>
     ),
-    keystone: (
-      <div className="rounded-lg border border-[var(--color-keystone-line)] bg-[var(--color-keystone-surface)] p-3">
-        <p className="text-[12px] font-medium uppercase tracking-wide text-[var(--color-keystone-muted)]">
-          Operate · People
-        </p>
-        <p className="mt-2 text-[14px] font-semibold text-[var(--color-keystone-fg)]">List → User detail</p>
-      </div>
-    ),
+    keystone: <KeystoneAdminSpecimen />,
   };
 
   return (

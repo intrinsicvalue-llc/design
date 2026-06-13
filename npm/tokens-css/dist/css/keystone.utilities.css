@@ -1,0 +1,57 @@
+/* GENERATED — intrinsicvalue-llc/design build.mjs — do not edit. Run: npm run build */
+
+/* Semantic admin console typography — compose with .iv-* instead of text-xs/text-sm */
+.iv-body {
+  font-size: var(--keystone-type-body-size);
+  line-height: var(--keystone-type-body-line-height);
+  font-weight: var(--keystone-type-body-weight);
+}
+
+.iv-label {
+  font-size: var(--keystone-type-label-size);
+  line-height: var(--keystone-type-label-line-height);
+  font-weight: var(--keystone-type-label-weight);
+  letter-spacing: var(--keystone-type-label-letter-spacing, normal);
+}
+
+.iv-tab {
+  font-size: var(--keystone-type-tab-size);
+  line-height: var(--keystone-type-tab-line-height);
+  font-weight: var(--keystone-type-tab-weight);
+}
+
+.iv-table-code {
+  font-family: var(--intrinsic-font-mono);
+  font-size: var(--keystone-type-table-code-size);
+  line-height: var(--keystone-type-table-code-line-height);
+  font-weight: var(--keystone-type-table-code-weight);
+}
+
+.iv-table {
+  width: 100%;
+  font-size: var(--keystone-type-table-cell-size);
+  line-height: var(--keystone-type-table-cell-line-height);
+  font-weight: var(--keystone-type-table-cell-weight);
+}
+
+.iv-table thead th {
+  font-size: var(--keystone-type-label-size);
+  line-height: var(--keystone-type-label-line-height);
+  font-weight: var(--keystone-type-label-weight);
+  letter-spacing: var(--keystone-type-label-letter-spacing, normal);
+  color: var(--color-keystone-muted);
+  padding: 10px 16px;
+  text-align: left;
+}
+
+.iv-table tbody td {
+  padding: 10px 16px;
+}
+
+.iv-table tbody td .iv-table-code,
+.iv-table tbody td.iv-table-code {
+  font-family: var(--intrinsic-font-mono);
+  font-size: var(--keystone-type-table-code-size);
+  line-height: var(--keystone-type-table-code-line-height);
+  font-weight: var(--keystone-type-table-code-weight);
+}

@@ -1,5 +1,5 @@
 {
-  "$comment": "Keystone admin portal — keystone.intrinsicvalue.llc. Dense, neutral, no product warmth.",
+  "$comment": "Keystone admin console — keystone.intrinsicvalue.llc. Dense, neutral, no product warmth.",
   "meta": {
     "id": "keystone",
     "label": "Keystone",
@@ -17,5 +17,13 @@
   "density": {
     "rowPaddingY": 10,
     "rowPaddingX": 12
+  },
+  "typography": {
+    "$comment": "Admin console semantic scale — one step above ad-hoc text-sm/text-xs. Table body never below body; monospace IDs same size as body.",
+    "body": { "sizePx": 15, "lineHeight": 1.45, "weight": 400 },
+    "label": { "sizePx": 14, "lineHeight": 1.35, "weight": 500, "letterSpacingEm": 0.01 },
+    "tab": { "sizePx": 15, "lineHeight": 1.3, "weight": 500 },
+    "tableCell": { "sizePx": 15, "lineHeight": 1.4, "weight": 400 },
+    "tableCode": { "sizePx": 15, "lineHeight": 1.4, "weight": 400 }
   }
 }

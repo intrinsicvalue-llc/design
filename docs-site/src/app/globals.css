@@ -4,6 +4,7 @@
 @import "@intrinsic/tokens-css/tasteful-app.theme.css";
 @import "@intrinsic/tokens-css/tasteful-www.theme.css";
 @import "@intrinsic/tokens-css/keystone.theme.css";
+@import "@intrinsic/tokens-css/keystone.utilities.css";
 
 html {
   scroll-behavior: smooth;
