@@ -23,7 +23,7 @@ KeystoneShell
 ├── Pulse
 ├── Operate → People → User detail
 ├── Operate → Tasteful → Households → Household detail
-└── Platform → Operators
+└── Platform → Admins
 ```
 
 No combined "360" views. List and detail are separate routes.

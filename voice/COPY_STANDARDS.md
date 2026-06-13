@@ -39,7 +39,7 @@ Recipe imported.
 
 | Ban | Use instead |
 |-----|-------------|
-| Admin | Operator (Keystone only) |
+| Operator (Keystone) | Admin |
 | 360 / customer 360 | User detail page |
 | Users (ambiguous list) | People (Keystone) |
 | Oops / Uh oh | Direct statement |
@@ -59,4 +59,4 @@ Recipe imported.
 ## Product-specific
 
 - **Meal occasion:** "Add someone to this meal" — not recipe collaborator (`docs/FOUNDATION/HOUSEHOLD_MODEL.md`)
-- **Keystone:** See `ENTITY_NAMES.md` — never blur Operator / User / Household
+- **Keystone:** See `ENTITY_NAMES.md` — never blur Admin / User / Household

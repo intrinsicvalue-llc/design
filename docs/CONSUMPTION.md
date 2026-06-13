@@ -1,28 +1,34 @@
 # Consuming Intrinsic Design
 
+Intrinsic Design splits into **three channels**. Use only what your product needs.
+
+| Channel | What | Web apps | iOS apps |
+|---------|------|----------|----------|
+| **CSS tokens** | `@intrinsic/tokens-css` on GitHub Packages | **Required** | — |
+| **Swift tokens** | `IntrinsicDesign` SPM (`swift/`) | — | **Required** |
+| **Patterns / voice / ADRs** | [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc) + this repo | Link | Link |
+
+---
+
 ## Web — `@intrinsic/tokens-css` (GitHub Packages)
 
-Production builds install published CSS tokens from GitHub Packages. The package publishes as **`@intrinsicvalue-llc/tokens-css`** (GitHub scope rule); apps depend via **npm alias** so imports stay `@intrinsic/tokens-css/...`.
+**Canonical for all web production builds.** Vercel and CI must never depend on cloning this repo.
 
-### Product repo setup
+Package publishes as **`@intrinsicvalue-llc/tokens-css`**; product repos use an **npm alias** so CSS imports stay `@intrinsic/tokens-css/...`.
 
-**`.npmrc`** (commit in each product repo):
+### Setup (every web product repo)
+
+**`.npmrc`** (commit in repo):
 
 ```ini
 @intrinsicvalue-llc:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 ```
 
-**`package.json`** (Keystone, website — repo root):
+**`package.json`:**
 
 ```json
-"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.0"
-```
-
-**Tasteful** (`apps/app`, `apps/www`):
-
-```json
-"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.0"
+"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.3"
 ```
 
 **CSS** (`globals.css`):
@@ -32,91 +38,85 @@ Production builds install published CSS tokens from GitHub Packages. The package
 @import "@intrinsic/tokens-css/keystone.theme.css";
 ```
 
-Pin exact version in lockfile; bump when design repo tags a release.
-
 ### Auth by environment
 
 | Environment | Token |
 |-------------|--------|
 | Local dev | `export NODE_AUTH_TOKEN=<PAT with read:packages>` |
-| GitHub Actions | `GITHUB_TOKEN` via `setup-node` + `registry-url` (see below) |
-| Vercel | Project env **`NODE_AUTH_TOKEN`** — PAT with `read:packages` |
+| GitHub Actions | Repo secret **`NODE_AUTH_TOKEN`** (cross-repo package read) or `GITHUB_TOKEN` when consuming from same org with correct permissions |
+| Vercel | Project env **`NODE_AUTH_TOKEN`** |
 
-Publishing and release tags: [`PUBLISH_TOKENS_CSS.md`](PUBLISH_TOKENS_CSS.md).
+Publishing: [`PUBLISH_TOKENS_CSS.md`](PUBLISH_TOKENS_CSS.md).
 
-### GitHub Actions (product repo)
+### GitHub Actions (web product repo — no submodule)
 
 ```yaml
 permissions:
   contents: read
   packages: read
 
-- uses: actions/setup-node@v4
+- uses: actions/checkout@v5
+- uses: actions/setup-node@v5
   with:
     node-version: "22"
     registry-url: https://npm.pkg.github.com
     scope: "@intrinsicvalue-llc"
     cache: npm
   env:
-    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+    NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 - run: npm ci
+- run: npm run build
 ```
-
-Submodule checkout is **optional** for web builds (tokens come from the registry). Keep the submodule for theme JSON, patterns, voice, and Swift.
 
 ---
 
-## Git submodule (theme source + iOS)
+## Which repos submodule `design/`?
 
-Each product repo vendors the design repo at `design/` for **source tokens**, docs, and Swift:
+| Repo | Submodule? | Why |
+|------|------------|-----|
+| **keystone** | **No** | Web-only admin portal |
+| **intrinsic-www** (website) | **No** | Web-only marketing site |
+| **tasteful** | **Yes** | iOS needs local SPM path `design/swift` |
+| **venn-gogh** | TBD | Submodule when iOS ships |
 
-```bash
-git submodule add https://github.com/intrinsicvalue-llc/design.git design
-git submodule update --init --recursive
-```
+**Web-only repos:** consume CSS from GitHub Packages; read patterns/voice on [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc). Clone `intrinsicvalue-llc/design` separately when **editing** tokens — do not vendor it in the product repo.
 
-**CI** (when submodule needed — iOS, token editing, `check_design_tokens.sh`):
-
-```yaml
-- uses: actions/checkout@v4
-  with:
-    submodules: recursive
-```
-
-**Local token changes** (before tagging a release):
+**tasteful (monorepo):**
 
 ```bash
-cd design && npm run build
-# tag + push design repo → publish workflow ships npm package
+git submodule update --init --recursive   # iOS + local token editing
 ```
+
+iOS CI jobs that build Xcode need `submodules: recursive`. **Web deploy jobs do not.**
 
 ---
 
 ## Swift Package (IntrinsicDesign)
 
-**tasteful** (`apps/ios`): local package path `../../design/swift` (submodule at repo root).
-
-Xcode → Add Local Package → `design/swift`.
+**tasteful** (`apps/ios`): Xcode → Add Local Package → `design/swift` (submodule at repo root).
 
 ```swift
 import IntrinsicDesign
 ```
 
+Future: publish SPM to a registry and drop the submodule for iOS — not required today.
+
 ---
 
-## Pinning releases
+## Release loop
 
-When design repo tags **`v1.1.0`**:
-
-1. Publish workflow ships **`@intrinsicvalue-llc/tokens-css@1.1.0`**
-2. Product repos bump dependency:
+1. Edit `tokens/*.json` in **`intrinsicvalue-llc/design`** → `npm run build` → commit generated artifacts.
+2. Tag semver: `git tag v1.0.4 && git push origin v1.0.4`
+3. **Publish tokens-css** workflow ships `@intrinsicvalue-llc/tokens-css@1.0.4`
+4. Each web product repo bumps:
 
    ```json
-   "@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.1.0"
+   "@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.4"
    ```
 
-3. Optional: advance submodule pointer for theme JSON / Swift
+5. **tasteful only:** advance `design/` submodule pointer after token/Swift changes.
+
+Product repos **never fork** token JSON or generated CSS.
 
 ---
 
@@ -124,11 +124,11 @@ When design repo tags **`v1.1.0`**:
 
 ```
 intrinsicvalue-llc/
-├── design          ← tokens, publish @intrinsicvalue-llc/tokens-css
-├── tasteful        ← submodule: design/ + npm alias
-├── keystone        ← submodule: design/ + npm alias
-├── website         ← submodule: design/ + npm alias
-└── venn-gogh       ← submodule: design/ + npm alias
+├── design           ← source of truth; publishes @intrinsicvalue-llc/tokens-css
+├── tasteful         ← submodule (iOS) + npm alias (web apps)
+├── keystone         ← npm alias only
+├── intrinsic-www    ← npm alias only
+└── venn-gogh        ← (future)
 ```
 
-Product repos do not fork token JSON. Web builds do not require submodule clone if GitHub Packages auth is configured.
+**Human reference:** [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc)

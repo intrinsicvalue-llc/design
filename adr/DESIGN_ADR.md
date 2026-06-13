@@ -34,7 +34,7 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 ## ADR-005 — Keystone indigo accent (2026-06)
 
 **Decision:** Keystone uses `#5856d6` accent — not Tasteful pink or www blue.  
-**Context:** Operator console must feel distinct from consumer products.  
+**Context:** Admin portal must feel distinct from consumer products.  
 **Consequence:** `tokens/themes/keystone.json`
 
 ## ADR-006 — Intrinsic* naming over Tasteful* for foundation (2026-06)
@@ -47,13 +47,19 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 
 **Decision:** `intrinsicvalue-llc/design` is company infrastructure — not nested in tasteful.  
 **Context:** Keystone, website, and future apps are separate repos; design must be a sibling dependency.  
-**Consequence:** Product repos use git submodule `design/` + `@intrinsic/tokens-css` + SPM `IntrinsicDesign`. See `adr/DESIGN_REPO.md`.
+**Consequence:** Product repos with iOS use git submodule `design/` for SPM; **web-only** repos use GitHub Packages only. See `adr/DESIGN_REPO.md` and ADR-009.
 
 ## ADR-008 — Publish web tokens to GitHub Packages (2026-06)
 
 **Decision:** Ship `@intrinsicvalue-llc/tokens-css` on GitHub Packages; product repos install via npm alias as `@intrinsic/tokens-css`.  
 **Context:** Vercel and other deploy targets cannot reliably clone private git submodules; `file:design/...` fails outside GitHub Actions. GitHub Packages scope must match org name.  
-**Consequence:** Tag `v*.*.*` triggers publish workflow; `CONSUMPTION.md` + `PUBLISH_TOKENS_CSS.md`; submodule optional for web CI/deploy; CSS import paths unchanged via alias.
+**Consequence:** Tag `v*.*.*` triggers publish workflow; `CONSUMPTION.md` + `PUBLISH_TOKENS_CSS.md`; web CI/deploy uses npm only; CSS import paths unchanged via alias.
+
+## ADR-009 — Web-only repos do not submodule design (2026-06)
+
+**Decision:** Keystone and intrinsic-www (and future web-only repos) do **not** vendor `design/` as a git submodule.  
+**Context:** ADR-008 made submodules unnecessary for web builds; duplicate `design/` copies caused agent confusion, stale pointers, and failed local pushes.  
+**Consequence:** Web-only repos consume `@intrinsic/tokens-css` + link to [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc). Only tasteful (iOS) keeps `design/` for SPM. Token edits happen in `intrinsicvalue-llc/design`, not inside product repos.
 
 ---
 

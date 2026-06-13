@@ -1,6 +1,6 @@
 {
   "name": "@intrinsicvalue-llc/tokens-css",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Intrinsic Design CSS tokens for web (Tailwind v4 @theme compatible)",
   "license": "UNLICENSED",
   "repository": {

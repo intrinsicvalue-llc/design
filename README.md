@@ -21,7 +21,7 @@ npm run docs:dev   # → http://localhost:3002
 | Web | `@intrinsicvalue-llc/tokens-css` on GitHub Packages (alias `@intrinsic/tokens-css` in apps) |
 | Apple | Swift package `swift/` → `IntrinsicDesign` |
 
-See [`docs/CONSUMPTION.md`](docs/CONSUMPTION.md) for submodule and CI setup in product repos.
+See [`docs/CONSUMPTION.md`](docs/CONSUMPTION.md) for GitHub Packages, iOS submodule, and CI by repo type.
 
 ## New app
 

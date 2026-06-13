@@ -25,5 +25,7 @@ alwaysApply: true
 ## Hard rules
 
 - Generated artifacts (`dist/`, `swift/Sources`, npm package) must match `npm run build` output.
-- Product repos consume via submodule — do not fork token JSON in tasteful/keystone/website.
+- Web-only product repos (Keystone, intrinsic-www) consume npm only — **no submodule**.
+- tasteful keeps `design/` submodule for iOS SPM; all web apps use GitHub Packages.
+- Do not fork token JSON in product repos.
 - Live site is the human-friendly view; this repo is the machine source.

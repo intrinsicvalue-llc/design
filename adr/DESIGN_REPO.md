@@ -11,23 +11,27 @@ Intrinsic Value ships multiple products (Tasteful, Keystone, website, Venn Gogh,
 
 | Layer | Repo | Role |
 |-------|------|------|
-| Design foundation | **`design`** | tokens, patterns, voice, ADRs, generators |
-| Product | `tasteful`, `keystone`, … | app code + product-specific docs |
+| Design foundation | **`design`** | tokens, patterns, voice, ADRs, generators, reference site |
+| Product | `tasteful`, `keystone`, `intrinsic-www`, … | app code + product-specific docs |
 
-Consumption:
+### Consumption by product type
 
-- **Web:** `@intrinsicvalue-llc/tokens-css` on GitHub Packages (install alias `@intrinsic/tokens-css` in product repos)
-- **Apple:** Swift Package `IntrinsicDesign` (from `swift/`)
-- **Integration:** git submodule at `design/` for token source, patterns, voice (optional for web deploy)
+| Product type | Web CSS | iOS Swift | Submodule |
+|--------------|---------|-----------|-----------|
+| Web-only (Keystone, intrinsic-www) | GitHub Packages `@intrinsic/tokens-css` | — | **No** |
+| iOS + web (tasteful) | GitHub Packages | SPM `design/swift` | **Yes** (iOS path) |
+| Patterns / voice (all) | — | — | [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc) |
 
 ## Consequences
 
-- Token changes release from `design` on its own semver tags → publish workflow
-- Product repos pin npm version in `package.json`; bump on design releases
-- CI/deploy: GitHub Packages auth (`NODE_AUTH_TOKEN` / `GITHUB_TOKEN`); submodule for iOS and token editing
-- Agents read one canonical path for patterns and tokens
+- Token changes release from `design` on semver tags → publish workflow → GitHub Packages
+- Web product repos pin npm version; bump on design releases
+- Web CI/deploy: **`NODE_AUTH_TOKEN`** with `read:packages` — no submodule clone
+- tasteful iOS CI: submodule checkout for `design/swift`
+- Agents read patterns/voice on the live design site or this repo — not vendored copies in web-only repos
 
 ## Supersedes
 
 - `packages/design/` inside tasteful monorepo (removed)
 - Hand-maintained CSS variables in keystone/website (migrated to themes)
+- Git submodule in **every** product repo (see ADR-009)

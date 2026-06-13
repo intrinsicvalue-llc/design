@@ -20,7 +20,7 @@ Actions: Delete (destructive) · Cancel
 
 ## Keystone
 
-- Operator writes append to `keystone.audit_log`
+- Admin writes append to `keystone.audit_log`
 - Confirm shows entity identifier (user id, household id) — not PII dump
 
 ## Copy

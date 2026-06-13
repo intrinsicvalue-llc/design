@@ -2,17 +2,17 @@
 
 Never blur these in UI, SQL, docs, or voice interfaces.
 
-## Keystone (operator console)
+## Keystone (admin portal)
 
 | Term | Who | UI label |
 |------|-----|----------|
-| **Operator** | `@intrinsicvalue.llc` staff | Platform → Operators |
+| **Admin** | `@intrinsicvalue.llc` staff | Platform → Admins |
 | **User** | Tasteful end customer | Operate → People → User detail |
 | **Household** | Shared billing / meal group | Operate → Households → Household detail |
 
 | Say | Don't say |
 |-----|-----------|
-| Operator sign-in | Admin login, Keystone user |
+| Admin sign-in | Keystone user, operator login |
 | User detail page | User 360, customer 360 |
 | People (list) | Users (ambiguous with auth.users) |
 
@@ -37,7 +37,7 @@ Use the same nouns in spoken responses as on-screen labels. See `VOICE_INTENTS.m
 | Context | Name |
 |---------|------|
 | Legal / footer | Intrinsic Value LLC |
-| Operator email domain | `@intrinsicvalue.llc` |
+| Admin email domain | `@intrinsicvalue.llc` |
 | Product domains | `tasteful.to`, `keystone.intrinsicvalue.llc` |
 
 Products are **not** prefixed with "Intrinsic" in consumer UI.
