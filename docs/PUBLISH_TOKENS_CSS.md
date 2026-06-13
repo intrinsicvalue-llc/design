@@ -15,7 +15,7 @@ Generated CSS tokens ship as **`@intrinsicvalue-llc/tokens-css`** on [GitHub Pac
 
 4. Workflow **Publish tokens-css** runs on `v*.*.*` tags and publishes to GitHub Packages.
 
-Manual publish: **Actions → Publish tokens-css → Run workflow**.
+Manual publish: **Actions → Publish tokens-css → Run workflow** (bump `npm/tokens-css/package.json` version first if the prior release already exists).
 
 ### If publish fails (org `intrinsicvalue-llc`)
 
