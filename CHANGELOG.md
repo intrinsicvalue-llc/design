@@ -31,7 +31,7 @@ Semantic type roles and compose utilities for keystone.intrinsicvalue.llc — ta
 
 ## v1.0.4
 
-**Released:** 2026-06
+**Released:** 2026-06-13T20:49:19Z
 
 ### Version badge sync
 
@@ -44,7 +44,7 @@ The reference site reads its version from npm/tokens-css/package.json so the hom
 
 ## v1.0.2
 
-**Released:** 2026-06
+**Released:** 2026-06-13T05:43:15Z
 
 ### Reliable token publishing
 
@@ -58,7 +58,7 @@ GitHub Actions can publish @intrinsicvalue-llc/tokens-css without a separate npm
 
 ## v1.0.1
 
-**Released:** 2026-06
+**Released:** 2026-06-13T05:40:58Z
 
 ### First GitHub Packages release
 
@@ -71,7 +71,7 @@ Web apps install design tokens from GitHub Packages using the @intrinsic/tokens-
 
 ## v1.0.0
 
-**Released:** 2026-06
+**Released:** 2026-06-13T04:04:51Z
 
 ### Intrinsic Design launch
 

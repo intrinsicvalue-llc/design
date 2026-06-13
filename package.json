@@ -7,6 +7,7 @@
     "build": "node build.mjs",
     "check": "node build.mjs --check",
     "changelog:now": "node scripts/changelog-now.mjs",
+    "changelog:sync": "node scripts/sync-changelog-tags.mjs",
     "docs:dev": "npm run dev --prefix docs-site",
     "docs:build": "npm run build --prefix docs-site"
   }
