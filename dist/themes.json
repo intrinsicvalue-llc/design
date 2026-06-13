@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "themes": [
+    {
+      "id": "intrinsic-www",
+      "label": "Intrinsic Value Website",
+      "surface": "website",
+      "cssPrefix": "intrinsic",
+      "cssOutput": "dist/css/intrinsic-www.theme.css",
+      "npmExport": "@intrinsic/tokens-css/intrinsic-www.theme.css"
+    },
+    {
+      "id": "keystone",
+      "label": "Keystone",
+      "surface": "apps/keystone",
+      "cssPrefix": "keystone",
+      "cssOutput": "dist/css/keystone.theme.css",
+      "npmExport": "@intrinsic/tokens-css/keystone.theme.css"
+    },
+    {
+      "id": "tasteful-app",
+      "label": "Tasteful App",
+      "surface": "apps/app",
+      "cssPrefix": "tasteful",
+      "cssOutput": "dist/css/tasteful-app.theme.css",
+      "npmExport": "@intrinsic/tokens-css/tasteful-app.theme.css"
+    },
+    {
+      "id": "tasteful-www",
+      "label": "Tasteful WWW",
+      "surface": "apps/www",
+      "cssPrefix": "tasteful",
+      "cssOutput": "dist/css/tasteful-www.theme.css",
+      "npmExport": "@intrinsic/tokens-css/tasteful-www.theme.css"
+    }
+  ]
+}

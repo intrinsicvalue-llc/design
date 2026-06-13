@@ -1,0 +1,23 @@
+/* GENERATED — intrinsicvalue-llc/design build.mjs — do not edit. Run: npm run build */
+
+@theme {
+  --font-sans: var(--intrinsic-font-sans);
+  --color-tasteful-fg: #0a0a0a;
+  --color-tasteful-muted: #636366;
+  --color-tasteful-line: rgba(0, 0, 0, 0.08);
+  --color-tasteful-surface: #f5f5f7;
+  --color-tasteful-accent: #ff2d55;
+  --color-tasteful-error: #c41e1e;
+}
+
+/* Dark mode — :root overrides (not nested @theme) for Tailwind v4 correctness */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-tasteful-fg: #f5f5f7;
+    --color-tasteful-muted: #a1a1a6;
+    --color-tasteful-line: rgba(255, 255, 255, 0.12);
+    --color-tasteful-surface: #1c1c1e;
+    --color-tasteful-accent: #ff375f;
+    --color-tasteful-error: #ff6961;
+  }
+}

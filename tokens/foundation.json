@@ -1,0 +1,40 @@
+{
+  "$comment": "Intrinsic Foundation — company-wide tokens. Never use raw values in feature code.",
+  "meta": {
+    "name": "intrinsic-foundation",
+    "version": "1.0.0"
+  },
+  "space": {
+    "xxs": 4,
+    "xs": 8,
+    "sm": 12,
+    "md": 16,
+    "lg": 20,
+    "xl": 24,
+    "section": 32
+  },
+  "radius": {
+    "badge": 10,
+    "button": 14,
+    "card": 20
+  },
+  "control": {
+    "glassIconSquare": 44
+  },
+  "motion": {
+    "durationFastMs": 150,
+    "durationNormalMs": 250,
+    "durationSlowMs": 400
+  },
+  "typography": {
+    "fontStackSans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"SF Pro Display\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "fontStackDisplay": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Roboto, sans-serif"
+  },
+  "colorRole": {
+    "info": { "swift": "blue", "web": "#007aff" },
+    "warning": { "swift": "orange", "web": "#ff9500" },
+    "success": { "swift": "green", "web": "#34c759" },
+    "critical": { "swift": "red", "web": "#ff3b30" },
+    "neutralSecondary": { "swift": "secondary", "web": "#636366" }
+  }
+}

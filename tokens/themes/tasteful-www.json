@@ -1,0 +1,26 @@
+{
+  "$comment": "Tasteful marketing — tasteful.to. Apple-blue accent; editorial warmth on lab routes.",
+  "meta": {
+    "id": "tasteful-www",
+    "label": "Tasteful WWW",
+    "surface": "apps/www"
+  },
+  "cssPrefix": "tasteful",
+  "color": {
+    "fg": { "light": "#0a0a0a", "dark": "#f5f5f7" },
+    "muted": { "light": "#636366", "dark": "#a1a1a6" },
+    "line": { "light": "rgba(0, 0, 0, 0.08)", "dark": "rgba(255, 255, 255, 0.12)" },
+    "surface": { "light": "#f5f5f7", "dark": "#1c1c1e" },
+    "accent": { "light": "#0071e3", "dark": "#0a84ff" },
+    "error": { "light": "#c41e1e", "dark": "#ff6961" }
+  },
+  "variants": {
+    "forceLightPalette": {
+      "fg": "#0a0a0a",
+      "muted": "#52525b",
+      "line": "rgba(0, 0, 0, 0.12)",
+      "surface": "#f0ebe3",
+      "accent": "#b91c1c"
+    }
+  }
+}

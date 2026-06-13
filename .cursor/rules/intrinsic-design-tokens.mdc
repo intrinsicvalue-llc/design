@@ -1,0 +1,61 @@
+---
+description: Intrinsic design tokens — use generated values, never raw magic numbers or hex in touched UI code
+globs:
+  - "**/*.swift"
+  - "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# Intrinsic design tokens
+
+**Repo:** `intrinsicvalue-llc/design` (submodule at `design/` in product repos)  
+**Regenerate:** `npm run build` in design repo  
+**Consumption:** `docs/CONSUMPTION.md`
+
+## iOS (SwiftUI)
+
+```swift
+import IntrinsicDesign
+
+IntrinsicSpacing.md
+IntrinsicRadius.card
+IntrinsicColorRole.warning
+IntrinsicControlSize.standard
+```
+
+Tasteful back-compat: `TastefulSpacing` typealias. Prefer `Intrinsic*` in new code.
+
+Accent on Tasteful iOS: `GlobalAccentColor.shared.currentColor` — not hardcoded hex.
+
+## Web (Tailwind / CSS)
+
+```css
+@import "@intrinsic/tokens-css/foundation.css";
+@import "@intrinsic/tokens-css/tasteful-app.theme.css";
+```
+
+```tsx
+className="text-[var(--color-tasteful-muted)]"
+className="border-[var(--color-tasteful-line)]"
+```
+
+Foundation: `var(--intrinsic-space-md)`, `var(--intrinsic-radius-card)`.
+
+## Themes
+
+| Surface | Theme | CSS prefix |
+|---------|-------|------------|
+| app.tasteful.to | tasteful-app | `--color-tasteful-*` |
+| tasteful.to | tasteful-www | `--color-tasteful-*` |
+| Keystone | keystone | `--color-keystone-*` |
+| intrinsicvalue.llc | intrinsic-www | `--color-intrinsic-*` |
+
+## Hard bans
+
+- ❌ Raw hex for product semantics in feature code
+- ❌ Magic spacing/radius where tokens exist
+- ❌ Hand-editing generated CSS or Swift
+
+## Patterns & copy
+
+`principles/UNIVERSAL.md` · `patterns/` · `voice/ENTITY_NAMES.md` · `adr/DESIGN_ADR.md`

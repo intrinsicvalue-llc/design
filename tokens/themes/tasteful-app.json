@@ -1,0 +1,17 @@
+{
+  "$comment": "Tasteful product web — app.tasteful.to. Pink accent matches iOS default.",
+  "meta": {
+    "id": "tasteful-app",
+    "label": "Tasteful App",
+    "surface": "apps/app"
+  },
+  "cssPrefix": "tasteful",
+  "color": {
+    "fg": { "light": "#0a0a0a", "dark": "#f5f5f7" },
+    "muted": { "light": "#636366", "dark": "#a1a1a6" },
+    "line": { "light": "rgba(0, 0, 0, 0.08)", "dark": "rgba(255, 255, 255, 0.12)" },
+    "surface": { "light": "#f5f5f7", "dark": "#1c1c1e" },
+    "accent": { "light": "#ff2d55", "dark": "#ff375f" },
+    "error": { "light": "#c41e1e", "dark": "#ff6961" }
+  }
+}

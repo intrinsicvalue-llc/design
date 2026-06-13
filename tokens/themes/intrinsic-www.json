@@ -1,0 +1,17 @@
+{
+  "$comment": "Intrinsic Value company site — intrinsicvalue.llc",
+  "meta": {
+    "id": "intrinsic-www",
+    "label": "Intrinsic Value Website",
+    "surface": "website"
+  },
+  "cssPrefix": "intrinsic",
+  "color": {
+    "fg": { "light": "#171717", "dark": "#ededed" },
+    "muted": { "light": "#525252", "dark": "#a3a3a3" },
+    "line": { "light": "rgba(0, 0, 0, 0.08)", "dark": "rgba(255, 255, 255, 0.12)" },
+    "surface": { "light": "#fafafa", "dark": "#0a0a0a" },
+    "accent": { "light": "#171717", "dark": "#fafafa" },
+    "error": { "light": "#c41e1e", "dark": "#ff6961" }
+  }
+}

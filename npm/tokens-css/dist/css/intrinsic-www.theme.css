@@ -1,0 +1,24 @@
+/* GENERATED — intrinsicvalue-llc/design build.mjs — do not edit. Run: npm run build */
+
+@theme {
+  --font-sans: var(--intrinsic-font-sans);
+  --font-display: var(--intrinsic-font-display);
+  --color-intrinsic-fg: #171717;
+  --color-intrinsic-muted: #525252;
+  --color-intrinsic-line: rgba(0, 0, 0, 0.08);
+  --color-intrinsic-surface: #fafafa;
+  --color-intrinsic-accent: #171717;
+  --color-intrinsic-error: #c41e1e;
+}
+
+/* Dark mode — :root overrides (not nested @theme) for Tailwind v4 correctness */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-intrinsic-fg: #ededed;
+    --color-intrinsic-muted: #a3a3a3;
+    --color-intrinsic-line: rgba(255, 255, 255, 0.12);
+    --color-intrinsic-surface: #0a0a0a;
+    --color-intrinsic-accent: #fafafa;
+    --color-intrinsic-error: #ff6961;
+  }
+}

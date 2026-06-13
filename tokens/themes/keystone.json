@@ -1,0 +1,21 @@
+{
+  "$comment": "Keystone operator console — keystone.intrinsicvalue.llc. Dense, neutral, no product warmth.",
+  "meta": {
+    "id": "keystone",
+    "label": "Keystone",
+    "surface": "apps/keystone"
+  },
+  "cssPrefix": "keystone",
+  "color": {
+    "fg": { "light": "#1d1d1f", "dark": "#f5f5f7" },
+    "muted": { "light": "#6e6e73", "dark": "#98989d" },
+    "line": { "light": "rgba(0, 0, 0, 0.1)", "dark": "rgba(255, 255, 255, 0.14)" },
+    "surface": { "light": "#f5f5f7", "dark": "#1c1c1e" },
+    "accent": { "light": "#5856d6", "dark": "#5e5ce6" },
+    "error": { "light": "#c41e1e", "dark": "#ff6961" }
+  },
+  "density": {
+    "rowPaddingY": 10,
+    "rowPaddingX": 12
+  }
+}

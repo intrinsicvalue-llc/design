@@ -1,0 +1,23 @@
+/* GENERATED — intrinsicvalue-llc/design build.mjs — do not edit. Run: npm run build */
+
+@theme {
+  --font-sans: var(--intrinsic-font-sans);
+  --color-keystone-fg: #1d1d1f;
+  --color-keystone-muted: #6e6e73;
+  --color-keystone-line: rgba(0, 0, 0, 0.1);
+  --color-keystone-surface: #f5f5f7;
+  --color-keystone-accent: #5856d6;
+  --color-keystone-error: #c41e1e;
+}
+
+/* Dark mode — :root overrides (not nested @theme) for Tailwind v4 correctness */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-keystone-fg: #f5f5f7;
+    --color-keystone-muted: #98989d;
+    --color-keystone-line: rgba(255, 255, 255, 0.14);
+    --color-keystone-surface: #1c1c1e;
+    --color-keystone-accent: #5e5ce6;
+    --color-keystone-error: #ff6961;
+  }
+}
