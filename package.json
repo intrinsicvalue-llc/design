@@ -5,6 +5,8 @@
   "description": "Intrinsic Value design system — tokens, patterns, voice, ADRs",
   "scripts": {
     "build": "node build.mjs",
-    "check": "node build.mjs --check"
+    "check": "node build.mjs --check",
+    "docs:dev": "npm run dev --prefix docs-site",
+    "docs:build": "npm run build --prefix docs-site"
   }
 }

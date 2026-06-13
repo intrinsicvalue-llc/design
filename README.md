@@ -15,10 +15,14 @@ npm run build
 npm run check
 ```
 
+**Host:** `design.intrinsicvalue.llc` (see `docs/DEPLOY_DOCS_SITE.md`)  
+**Local:** `npm run docs:dev` → http://localhost:3002
+
 ## Structure
 
 ```
 design/
+├── docs-site/                   # Intrinsic Design reference (Next.js)
 ├── tokens/foundation.json       # spacing, radius, motion, status colors
 ├── tokens/themes/*.json         # per-product accent + semantic colors
 ├── build.mjs                    # generator (zero deps)

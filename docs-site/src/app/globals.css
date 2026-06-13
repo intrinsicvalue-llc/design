@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "@intrinsic/tokens-css/foundation.css";
+@import "@intrinsic/tokens-css/intrinsic-www.theme.css";
+@import "@intrinsic/tokens-css/tasteful-app.theme.css";
+@import "@intrinsic/tokens-css/tasteful-www.theme.css";
+@import "@intrinsic/tokens-css/keystone.theme.css";
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-intrinsic-fg);
+  background: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000;
+  }
+}
+
+a[href],
+button:not(:disabled) {
+  cursor: pointer;
+}
