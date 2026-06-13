@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { ThemePreview } from "@/components/ThemePreview";
-import { DESIGN_VERSION, getFoundation, getThemes, PATTERNS, VOICE_DOCS } from "@/lib/design-data";
+import { getDesignVersion, getFoundation, getThemes, PATTERNS, VOICE_DOCS } from "@/lib/design-data";
 
 export default function HomePage() {
   const themes = getThemes();
   const foundation = getFoundation();
+  const designVersion = getDesignVersion();
 
   return (
     <PageShell
@@ -57,7 +58,7 @@ export default function HomePage() {
             <p className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-intrinsic-muted)]">
               Version
             </p>
-            <p className="mt-1 font-mono text-2xl font-semibold text-[var(--color-intrinsic-fg)]">v{DESIGN_VERSION}</p>
+            <p className="mt-1 font-mono text-2xl font-semibold text-[var(--color-intrinsic-fg)]">v{designVersion}</p>
             <p className="mt-2 text-[13px] text-[var(--color-intrinsic-muted)]">Git tag on intrinsicvalue-llc/design</p>
           </div>
 

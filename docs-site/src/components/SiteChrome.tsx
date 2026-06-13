@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { DESIGN_VERSION, NAV } from "@/lib/design-types";
+import { getDesignVersion } from "@/lib/design-data";
+import { NAV } from "@/lib/design-types";
 
-export function SiteHeader({ current }: { current?: string }) {
+export function SiteHeader({ current, designVersion }: { current?: string; designVersion: string }) {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-intrinsic-line)] bg-[var(--color-intrinsic-surface)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-5 py-3">
@@ -10,7 +11,7 @@ export function SiteHeader({ current }: { current?: string }) {
             Intrinsic Design
           </span>
           <span className="rounded-full bg-[var(--color-intrinsic-line)] px-2 py-0.5 font-mono text-[11px] text-[var(--color-intrinsic-muted)]">
-            v{DESIGN_VERSION}
+            v{designVersion}
           </span>
         </Link>
         <nav className="flex flex-wrap gap-1 text-[14px]">
@@ -44,9 +45,11 @@ export function PageShell({
   current?: string;
   children: React.ReactNode;
 }) {
+  const designVersion = getDesignVersion();
+
   return (
     <>
-      <SiteHeader current={current} />
+      <SiteHeader current={current} designVersion={designVersion} />
       <main className="mx-auto max-w-6xl px-5 py-10">
         <header className="mb-10 border-b border-[var(--color-intrinsic-line)] pb-8">
           <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-intrinsic-fg)]">{title}</h1>

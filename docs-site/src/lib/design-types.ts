@@ -25,8 +25,6 @@ export type Foundation = {
   colorRole: Record<string, { swift: string; web: string }>;
 };
 
-export const DESIGN_VERSION = "1.0.0";
-
 export function themeVar(prefix: string, name: string): string {
   return `--color-${prefix}-${name}`;
 }

@@ -1,22 +1,20 @@
 import fs from "fs";
 import path from "path";
 import type { Foundation, Theme } from "./design-types";
-import { PATTERNS, VOICE_DOCS } from "./design-types";
+import { NAV, PATTERNS, VOICE_DOCS, cssVarsForTheme, themeVar } from "./design-types";
 
-export {
-  DESIGN_VERSION,
-  NAV,
-  PATTERNS,
-  VOICE_DOCS,
-  cssVarsForTheme,
-  themeVar,
-} from "./design-types";
+export { NAV, PATTERNS, VOICE_DOCS, cssVarsForTheme, themeVar };
 export type { Foundation, Theme, ThemeColors } from "./design-types";
 
 const REPO_ROOT = path.join(process.cwd(), "..");
 
 function readJson<T>(relativePath: string): T {
   return JSON.parse(fs.readFileSync(path.join(REPO_ROOT, relativePath), "utf8")) as T;
+}
+
+/** Published @intrinsicvalue-llc/tokens-css version (matches git release tag). */
+export function getDesignVersion(): string {
+  return readJson<{ version: string }>("npm/tokens-css/package.json").version;
 }
 
 export function getFoundation(): Foundation {
