@@ -58,8 +58,16 @@ export default function HomePage() {
             <p className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-intrinsic-muted)]">
               Version
             </p>
-            <p className="mt-1 font-mono text-2xl font-semibold text-[var(--color-intrinsic-fg)]">v{designVersion}</p>
-            <p className="mt-2 text-[13px] text-[var(--color-intrinsic-muted)]">Git tag on intrinsicvalue-llc/design</p>
+            <Link href="/changelog">
+              <p className="mt-1 font-mono text-2xl font-semibold text-[var(--color-intrinsic-fg)] hover:text-[var(--color-intrinsic-accent)]">
+                v{designVersion}
+              </p>
+            </Link>
+            <p className="mt-2 text-[13px] text-[var(--color-intrinsic-muted)]">
+              <Link href="/changelog" className="text-[var(--color-intrinsic-accent)] hover:underline">
+                What&apos;s new →
+              </Link>
+            </p>
           </div>
 
           <div className="rounded-2xl border border-[var(--color-intrinsic-line)] p-5">

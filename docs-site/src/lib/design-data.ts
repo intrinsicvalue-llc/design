@@ -38,6 +38,10 @@ export function readMarkdown(relativePath: string): string {
   return fs.readFileSync(path.join(REPO_ROOT, relativePath), "utf8");
 }
 
+export function readChangelog(): string {
+  return readMarkdown("CHANGELOG.md");
+}
+
 export function readPattern(slug: string): { title: string; body: string } | null {
   const item = PATTERNS.find((p) => p.slug === slug);
   if (!item) return null;

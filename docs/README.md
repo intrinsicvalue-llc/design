@@ -12,6 +12,7 @@ Company-wide design foundation for every Intrinsic Value product.
 | Doc | Purpose |
 |-----|---------|
 | [`README.md`](../README.md) | Quick start, structure, consumption summary |
+| [`CHANGELOG.md`](../CHANGELOG.md) | Plain-English release history (also on the reference site) |
 | [`docs/CONSUMPTION.md`](CONSUMPTION.md) | GitHub Packages, submodule, SPM, CI in product repos |
 | [`docs/PUBLISH_TOKENS_CSS.md`](PUBLISH_TOKENS_CSS.md) | Release `@intrinsicvalue-llc/tokens-css` |
 | [`docs/DEPLOY_DOCS_SITE.md`](DEPLOY_DOCS_SITE.md) | Vercel + DNS for reference site |
