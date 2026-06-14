@@ -1,6 +1,6 @@
 {
   "name": "@intrinsicvalue-llc/tokens-css",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Intrinsic Design CSS tokens for web (Tailwind v4 @theme compatible)",
   "license": "UNLICENSED",
   "repository": {
@@ -14,7 +14,7 @@
   "files": ["dist/css", "README.md"],
   "exports": {
     "./foundation.css": "./dist/css/foundation.css",
-    "./tasteful-app.theme.css": "./dist/css/tasteful-app.theme.css",
+    "./tasteful-web-app.theme.css": "./dist/css/tasteful-web-app.theme.css",
     "./tasteful-www.theme.css": "./dist/css/tasteful-www.theme.css",
     "./keystone.theme.css": "./dist/css/keystone.theme.css",
     "./keystone.utilities.css": "./dist/css/keystone.utilities.css",

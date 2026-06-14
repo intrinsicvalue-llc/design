@@ -27,7 +27,7 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 
 ## ADR-004 — Theme-specific accents (2026-06)
 
-**Decision:** tasteful-www = blue marketing accent; tasteful-app = pink product accent; iOS = user accent.  
+**Decision:** tasteful-www = blue marketing accent; tasteful-web-app = pink product accent; iOS = user accent.  
 **Context:** Editorial www vs product identity vs personalization.  
 **Consequence:** Documented in `docs/design/tasteful.md`; change only via theme JSON.
 

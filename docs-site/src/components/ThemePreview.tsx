@@ -84,7 +84,7 @@ export function ThemeExplorer({ themes }: { themes: Theme[] }) {
 
 export function PatternSpecimen({ themeId }: { themeId: string }) {
   const specimens: Record<string, React.ReactNode> = {
-    "tasteful-app": (
+    "tasteful-web-app": (
       <div className="rounded-2xl border border-[var(--color-tasteful-line)] bg-white p-4 dark:bg-black">
         <p className="text-[13px] font-semibold text-[var(--color-tasteful-fg)]">Log a meal</p>
         <p className="mt-1 text-[13px] text-[var(--color-tasteful-muted)]">Editor sheet · checkmark save</p>

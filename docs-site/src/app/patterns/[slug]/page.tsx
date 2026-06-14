@@ -23,7 +23,7 @@ export default async function PatternPage({ params }: { params: Promise<{ slug: 
           <h3 className="text-[13px] font-semibold uppercase tracking-wider text-[var(--color-intrinsic-muted)]">
             Specimens
           </h3>
-          <PatternSpecimen themeId="tasteful-app" />
+          <PatternSpecimen themeId="tasteful-web-app" />
           <PatternSpecimen themeId="keystone" />
         </aside>
       </div>

@@ -31,7 +31,7 @@ Accent on Tasteful iOS: `GlobalAccentColor.shared.currentColor` — not hardcode
 
 ```css
 @import "@intrinsic/tokens-css/foundation.css";
-@import "@intrinsic/tokens-css/tasteful-app.theme.css";
+@import "@intrinsic/tokens-css/tasteful-web-app.theme.css";
 ```
 
 ```tsx
@@ -61,7 +61,7 @@ Tokens: `--keystone-type-body-size` (15px), `text-keystone-body` in Tailwind v4 
 
 | Surface | Theme | CSS prefix |
 |---------|-------|------------|
-| app.tasteful.to | tasteful-app | `--color-tasteful-*` |
+| app.tasteful.to | tasteful-web-app | `--color-tasteful-*` |
 | tasteful.to | tasteful-www | `--color-tasteful-*` |
 | Keystone | keystone | `--color-keystone-*` |
 | intrinsicvalue.llc | intrinsic-www | `--color-intrinsic-*` |

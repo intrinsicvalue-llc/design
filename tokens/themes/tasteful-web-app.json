@@ -1,8 +1,8 @@
 {
   "$comment": "Tasteful product web — app.tasteful.to. Pink accent matches iOS default.",
   "meta": {
-    "id": "tasteful-app",
-    "label": "Tasteful App",
+    "id": "tasteful-web-app",
+    "label": "Tasteful Web App",
     "surface": "apps/web-app"
   },
   "cssPrefix": "tasteful",

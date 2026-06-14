@@ -1,5 +1,5 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.7",
   "themes": [
     {
       "id": "intrinsic-www",
@@ -18,12 +18,12 @@
       "npmExport": "@intrinsic/tokens-css/keystone.theme.css"
     },
     {
-      "id": "tasteful-app",
-      "label": "Tasteful App",
+      "id": "tasteful-web-app",
+      "label": "Tasteful Web App",
       "surface": "apps/web-app",
       "cssPrefix": "tasteful",
-      "cssOutput": "dist/css/tasteful-app.theme.css",
-      "npmExport": "@intrinsic/tokens-css/tasteful-app.theme.css"
+      "cssOutput": "dist/css/tasteful-web-app.theme.css",
+      "npmExport": "@intrinsic/tokens-css/tasteful-web-app.theme.css"
     },
     {
       "id": "tasteful-www",

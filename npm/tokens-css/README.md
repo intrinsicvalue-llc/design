@@ -37,7 +37,7 @@ npm install file:../npm/tokens-css   # docs-site and sibling paths
 ```css
 @import "tailwindcss";
 @import "@intrinsic/tokens-css/foundation.css";
-@import "@intrinsic/tokens-css/tasteful-app.theme.css";
+@import "@intrinsic/tokens-css/tasteful-web-app.theme.css";
 ```
 
 Semantic variables: `var(--color-tasteful-accent)`, `var(--intrinsic-space-md)`.

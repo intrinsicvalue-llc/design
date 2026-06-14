@@ -1,7 +1,7 @@
 {
   "name": "intrinsic-design",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Intrinsic Value design system — tokens, patterns, voice, ADRs",
   "scripts": {
     "build": "node build.mjs",
