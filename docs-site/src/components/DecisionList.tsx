@@ -104,8 +104,8 @@ export function ArchitectureOverview() {
       </div>
 
       <ul className="mt-6 space-y-2 text-[15px] leading-relaxed text-[var(--color-intrinsic-muted)]">
-        <li>Token releases ship on semver tags → GitHub Packages.</li>
-        <li>Web CI uses <code className="font-mono text-[13px]">NODE_AUTH_TOKEN</code> — no submodule clone.</li>
+        <li>Token releases ship on semver tags → public npm.</li>
+        <li>Web CI uses plain <code className="font-mono text-[13px]">npm ci</code> — no auth tokens.</li>
         <li>Only tasteful keeps <code className="font-mono text-[13px]">design/</code> for SwiftPM.</li>
       </ul>
     </section>

@@ -61,6 +61,12 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 **Context:** ADR-008 made submodules unnecessary for web builds; duplicate `design/` copies caused agent confusion, stale pointers, and failed local pushes.  
 **Consequence:** Web-only repos consume `@intrinsic/tokens-css` + link to [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc). Only tasteful (iOS) keeps `design/` for SPM. Token edits happen in `intrinsicvalue-llc/design`, not inside product repos.
 
+## ADR-010 — Public design repo + public npm tokens (2026-06)
+
+**Decision:** `intrinsicvalue-llc/design` is a **public** GitHub repo. Web tokens publish to **public npm** (`@intrinsicvalue-llc/tokens-css` on registry.npmjs.org), not GitHub Packages.  
+**Context:** Private submodule + `GH_SUBMODULE_PAT` broke iOS CI; `NODE_AUTH_TOKEN` on every Vercel project and web CI job created rotating-secret overhead with zero user value. Philosophy, tokens, and ADRs are already public on design.intrinsicvalue.llc.  
+**Consequence:** No `GH_SUBMODULE_PAT`, no `NODE_AUTH_TOKEN` for token installs. Product repos drop `.npmrc` auth. Publish workflow uses **`NPM_TOKEN`** on the design repo only. Supersedes ADR-008 consumption/auth paths; publish registry moves from GitHub Packages to npm.
+
 ---
 
 *Append new ADRs at the bottom. Never delete — supersede with a new ADR that references the old one.*

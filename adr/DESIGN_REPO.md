@@ -18,16 +18,16 @@ Intrinsic Value ships multiple products (Tasteful, Keystone, website, Venn Gogh,
 
 | Product type | Web CSS | iOS Swift | Submodule |
 |--------------|---------|-----------|-----------|
-| Web-only (Keystone, intrinsic-www) | GitHub Packages `@intrinsic/tokens-css` | — | **No** |
-| iOS + web (tasteful) | GitHub Packages | SPM `design/swift` | **Yes** (iOS path) |
+| Web-only (Keystone, intrinsic-www) | npm `@intrinsic/tokens-css` | — | **No** |
+| iOS + web (tasteful) | npm | SPM `design/swift` | **Yes** (iOS path) |
 | Patterns / voice (all) | — | — | [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc) |
 
 ## Consequences
 
-- Token changes release from `design` on semver tags → publish workflow → GitHub Packages
-- Web product repos pin npm version; bump on design releases
-- Web CI/deploy: **`NODE_AUTH_TOKEN`** with `read:packages` — no submodule clone
-- tasteful iOS CI: submodule checkout for `design/swift`
+- Token changes release from `design` on semver tags → publish workflow → **public npm**
+- Web product repos pin npm version; bump on design releases — **no auth tokens**
+- Web CI/deploy: plain `npm ci` — no submodule clone
+- tasteful iOS CI: **public** submodule checkout for `design/swift` — no PAT
 - Agents read patterns/voice on the live design site or this repo — not vendored copies in web-only repos
 
 ## Supersedes

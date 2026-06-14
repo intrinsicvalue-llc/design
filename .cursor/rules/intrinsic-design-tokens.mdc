@@ -9,7 +9,7 @@ alwaysApply: false
 # Intrinsic design tokens
 
 **Repo:** `intrinsicvalue-llc/design` (this repo)  
-**Web install:** `@intrinsic/tokens-css` from GitHub Packages — see `docs/CONSUMPTION.md`  
+**Web install:** `@intrinsic/tokens-css` from public npm — see `docs/CONSUMPTION.md`  
 **iOS install:** submodule `design/swift` in tasteful only
 
 ## iOS (SwiftUI)

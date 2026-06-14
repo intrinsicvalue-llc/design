@@ -15,17 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v5
 
       - uses: actions/setup-node@v5
         with:
           node-version: "22"
-          registry-url: https://npm.pkg.github.com
+          registry-url: https://registry.npmjs.org
           scope: "@intrinsicvalue-llc"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build tokens
         run: node build.mjs
@@ -35,8 +33,8 @@ jobs:
         working-directory: npm/tokens-css
         run: npm version "${GITHUB_REF#refs/tags/v}" --no-git-tag-version --allow-same-version
 
-      - name: Publish to GitHub Packages
+      - name: Publish to npm
         working-directory: npm/tokens-css
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish --access restricted --provenance=false
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance

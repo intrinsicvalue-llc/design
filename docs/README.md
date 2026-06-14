@@ -13,7 +13,7 @@ Company-wide design foundation for every Intrinsic Value product.
 |-----|---------|
 | [`README.md`](../README.md) | Quick start, structure, consumption summary |
 | [`CHANGELOG.md`](../CHANGELOG.md) | Release history (generated from `changelog/releases.json`; rendered on the reference site) |
-| [`docs/CONSUMPTION.md`](CONSUMPTION.md) | GitHub Packages, submodule, SPM, CI in product repos |
+| [`docs/CONSUMPTION.md`](CONSUMPTION.md) | Public npm, submodule, SPM, CI in product repos |
 | [`docs/PUBLISH_TOKENS_CSS.md`](PUBLISH_TOKENS_CSS.md) | Release `@intrinsicvalue-llc/tokens-css` |
 | [`docs/DEPLOY_DOCS_SITE.md`](DEPLOY_DOCS_SITE.md) | Vercel + DNS for reference site |
 | [`docs/MILESTONES.md`](MILESTONES.md) | Pointer to cross-repo platform milestones |

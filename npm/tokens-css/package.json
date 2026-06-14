@@ -1,15 +1,16 @@
 {
   "name": "@intrinsicvalue-llc/tokens-css",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Intrinsic Design CSS tokens for web (Tailwind v4 @theme compatible)",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/intrinsicvalue-llc/design.git",
     "directory": "npm/tokens-css"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "files": ["dist/css", "README.md"],
   "exports": {

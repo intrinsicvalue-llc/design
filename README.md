@@ -2,7 +2,9 @@
 
 **GitHub:** `intrinsicvalue-llc/design` · **Site:** [design.intrinsicvalue.llc](https://design.intrinsicvalue.llc)
 
-Company-wide tokens, patterns, voice, and ADRs for every Intrinsic Value product.
+Tokens, patterns, and themes for Intrinsic Value apps.
+
+Pattern-first, platform-native design foundation for every Intrinsic Value product. Tokens are law; themes express personality; patterns define behavior.
 
 **Documentation:** [`docs/README.md`](docs/README.md)
 
@@ -18,7 +20,7 @@ npm run docs:dev   # → http://localhost:3002
 
 | Platform | Package |
 |----------|---------|
-| Web | `@intrinsicvalue-llc/tokens-css` on GitHub Packages (alias `@intrinsic/tokens-css` in apps) |
+| Web | `@intrinsicvalue-llc/tokens-css` on [npm](https://www.npmjs.com/package/@intrinsicvalue-llc/tokens-css) (alias `@intrinsic/tokens-css` in apps) |
 | Apple | Swift package `swift/` → `IntrinsicDesign` |
 
 See [`docs/CONSUMPTION.md`](docs/CONSUMPTION.md) for GitHub Packages, iOS submodule, and CI by repo type.

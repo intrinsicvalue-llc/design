@@ -5,6 +5,26 @@ Release history for **Intrinsic Design** and `@intrinsic/tokens-css`.
 Canonical source: `changelog/releases.json`. Store `releasedAt` in UTC with a trailing `Z` (`npm run changelog:now`).
 Versions match git tags on `intrinsicvalue-llc/design`.
 
+## v1.0.8
+
+**Released:** 2026-06-14T18:00:00Z
+
+### Public repo + public npm
+
+intrinsicvalue-llc/design is public; @intrinsicvalue-llc/tokens-css publishes to npmjs.org — no NODE_AUTH_TOKEN or GH_SUBMODULE_PAT in product repos.
+
+**Changed**
+- Publish @intrinsicvalue-llc/tokens-css to public npm (MIT license).
+- ADR-010 — supersedes GitHub Packages consumption auth.
+- Product repos drop .npmrc and NODE_AUTH_TOKEN for token installs.
+
+**Migration**
+- Bump @intrinsic/tokens-css to ^1.0.8.
+- Remove .npmrc auth files from web product repos.
+- Remove NODE_AUTH_TOKEN from Vercel projects and CI secrets.
+
+---
+
 ## v1.0.5
 
 **Released:** 2026-06-13T23:11:08Z

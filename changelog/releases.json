@@ -2,6 +2,31 @@
   "$comment": "Canonical changelog. releasedAt: UTC Z — npm run changelog:sync (from git tags) or changelog:now (new entry).",
   "releases": [
     {
+      "version": "1.0.8",
+      "releasedAt": "2026-06-14T18:00:00Z",
+      "title": "Public repo + public npm",
+      "summary": "intrinsicvalue-llc/design is public; @intrinsicvalue-llc/tokens-css publishes to npmjs.org — no NODE_AUTH_TOKEN or GH_SUBMODULE_PAT in product repos.",
+      "featured": true,
+      "sections": [
+        {
+          "label": "Changed",
+          "items": [
+            "Publish @intrinsicvalue-llc/tokens-css to public npm (MIT license).",
+            "ADR-010 — supersedes GitHub Packages consumption auth.",
+            "Product repos drop .npmrc and NODE_AUTH_TOKEN for token installs."
+          ]
+        },
+        {
+          "label": "Migration",
+          "items": [
+            "Bump @intrinsic/tokens-css to ^1.0.8.",
+            "Remove .npmrc auth files from web product repos.",
+            "Remove NODE_AUTH_TOKEN from Vercel projects and CI secrets."
+          ]
+        }
+      ]
+    },
+    {
       "version": "1.0.5",
       "releasedAt": "2026-06-13T23:11:08Z",
       "title": "Keystone admin console typography",
