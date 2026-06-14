@@ -19,7 +19,10 @@ Manual publish: **Actions → Publish tokens-css → Run workflow** (bump `npm/t
 
 ### Secrets (one-time)
 
-Add repo secret **`NPM_TOKEN`** on `intrinsicvalue-llc/design` — npm automation token with publish access to `@intrinsicvalue-llc/tokens-css`.
+1. Create npm org **`intrinsicvalue-llc`** at [npmjs.com](https://www.npmjs.com/org/create) (free for public packages).
+2. Create an **Automation** token with publish access.
+3. Add repo secret **`NPM_TOKEN`** on `intrinsicvalue-llc/design`.
+4. Re-run **Publish tokens-css** workflow (or push a new `v*.*.*` tag).
 
 ### If publish fails
 
