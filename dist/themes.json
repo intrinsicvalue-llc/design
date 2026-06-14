@@ -20,7 +20,7 @@
     {
       "id": "tasteful-app",
       "label": "Tasteful App",
-      "surface": "apps/app",
+      "surface": "apps/web-app",
       "cssPrefix": "tasteful",
       "cssOutput": "dist/css/tasteful-app.theme.css",
       "npmExport": "@intrinsic/tokens-css/tasteful-app.theme.css"

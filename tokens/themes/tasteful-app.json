@@ -3,7 +3,7 @@
   "meta": {
     "id": "tasteful-app",
     "label": "Tasteful App",
-    "surface": "apps/app"
+    "surface": "apps/web-app"
   },
   "cssPrefix": "tasteful",
   "color": {
