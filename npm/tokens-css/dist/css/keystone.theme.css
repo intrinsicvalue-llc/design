@@ -28,6 +28,13 @@
   --text-keystone-tab: 15px;
   --text-keystone-tab--line-height: 1.3;
   --font-weight-keystone-tab: 500;
+  --keystone-type-page-title-size: 30px;
+  --keystone-type-page-title-line-height: 1.2;
+  --keystone-type-page-title-weight: 600;
+  --keystone-type-page-title-letter-spacing: -0.02em;
+  --text-keystone-page-title: 30px;
+  --text-keystone-page-title--line-height: 1.2;
+  --font-weight-keystone-page-title: 600;
   --keystone-type-table-cell-size: 15px;
   --keystone-type-table-cell-line-height: 1.4;
   --keystone-type-table-cell-weight: 400;

@@ -102,6 +102,13 @@ function buildThemeUtilitiesCSS(theme) {
   lines.push(`  font-weight: var(${typeVar(p, "tab", "weight")});`);
   lines.push("}\n");
 
+  lines.push(".iv-page-title {");
+  lines.push(`  font-size: var(${typeVar(p, "page-title", "size")});`);
+  lines.push(`  line-height: var(${typeVar(p, "page-title", "line-height")});`);
+  lines.push(`  font-weight: var(${typeVar(p, "page-title", "weight")});`);
+  lines.push(`  letter-spacing: var(${typeVar(p, "page-title", "letter-spacing")}, -0.02em);`);
+  lines.push("}\n");
+
   lines.push(".iv-table-code {");
   lines.push("  font-family: var(--intrinsic-font-mono);");
   lines.push(`  font-size: var(${typeVar(p, "table-code", "size")});`);

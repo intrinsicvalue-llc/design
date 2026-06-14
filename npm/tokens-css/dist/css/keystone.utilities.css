@@ -20,6 +20,13 @@
   font-weight: var(--keystone-type-tab-weight);
 }
 
+.iv-page-title {
+  font-size: var(--keystone-type-page-title-size);
+  line-height: var(--keystone-type-page-title-line-height);
+  font-weight: var(--keystone-type-page-title-weight);
+  letter-spacing: var(--keystone-type-page-title-letter-spacing, -0.02em);
+}
+
 .iv-table-code {
   font-family: var(--intrinsic-font-mono);
   font-size: var(--keystone-type-table-code-size);

@@ -49,6 +49,7 @@ Keystone admin console typography:
 
 ```tsx
 className="iv-body text-[var(--color-keystone-muted)]"
+className="iv-page-title"
 className="iv-table"
 className="iv-table-code"
 className="iv-tab"

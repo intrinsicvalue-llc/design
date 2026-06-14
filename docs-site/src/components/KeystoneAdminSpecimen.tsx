@@ -37,7 +37,7 @@ export function KeystoneAdminSpecimen() {
 
       <div className="space-y-6 p-6">
         <div className="space-y-2">
-          <h2 className="text-2xl font-semibold tracking-tight">Users</h2>
+          <h1 className="iv-page-title">Users</h1>
           <p className="iv-body max-w-2xl text-[var(--color-keystone-muted)]">
             Tasteful customers — recent signups below, or search by email, USR- ID, UUID, name, or Apple
             transaction id.

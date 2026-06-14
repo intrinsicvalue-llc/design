@@ -54,6 +54,7 @@ Audience: `@intrinsicvalue.llc` admins using **Keystone** (`keystone.intrinsicva
 | Role | Token | Use |
 |------|-------|-----|
 | Body | `body` (15px) | Page descriptions, search inputs, empty states, footer notes, session email |
+| Page title | `pageTitle` (30px, semibold) | Route `<h1>` — Users, Admins, User detail (not shell brand) |
 | Label | `label` (14px, medium) | Section headings (`Recent users (n)`), table column headers, uppercase breadcrumbs |
 | Tab | `tab` (15px, medium) | Shell nav and detail `?tab=` nav |
 | Table cell | `tableCell` (15px) | Table body — **never below body size** |
@@ -64,7 +65,8 @@ Audience: `@intrinsicvalue.llc` admins using **Keystone** (`keystone.intrinsicva
 1. **No ad-hoc `text-xs` / `text-sm`** in Keystone feature code — use `.iv-*` utilities or Tailwind `text-keystone-*` from `@theme`.
 2. **Tables:** wrap with `.iv-table`; monospace cells use `.iv-table-code` (class on `<td>` or inner `<span>`).
 3. **Tabs:** shell nav links and detail tabs use `.iv-tab` (+ color/active classes).
-4. **Monospace audit/ID columns** stay at `tableCode` size even in `<dl>` metadata blocks outside tables.
+4. **Page titles:** list and detail route `<h1>` use `.iv-page-title` — not `text-2xl`.
+5. **Monospace audit/ID columns** stay at `tableCode` size even in `<dl>` metadata blocks outside tables.
 
 ### Compose (CSS)
 
@@ -75,6 +77,7 @@ Audience: `@intrinsicvalue.llc` admins using **Keystone** (`keystone.intrinsicva
 
 ```html
 <nav class="iv-tab …">Home</nav>
+<h1 class="iv-page-title">Users</h1>
 <p class="iv-body text-[var(--color-keystone-muted)]">Description</p>
 <p class="iv-label font-medium text-[var(--color-keystone-muted)]">Recent users (25)</p>
 <table class="iv-table …">
