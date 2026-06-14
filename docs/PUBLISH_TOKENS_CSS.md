@@ -17,17 +17,30 @@ Generated CSS tokens ship as **`@intrinsicvalue-llc/tokens-css`** on [npm](https
 
 Manual publish: **Actions → Publish tokens-css → Run workflow** (bump `npm/tokens-css/package.json` version first if the prior release already exists).
 
-### Secrets (one-time)
+## Publish auth (Trusted Publishing / OIDC)
 
-1. Create npm org **`intrinsicvalue-llc`** at [npmjs.com](https://www.npmjs.com/org/create) (free for public packages).
-2. Create an **Automation** token with publish access.
-3. Add repo secret **`NPM_TOKEN`** on `intrinsicvalue-llc/design`.
-4. Re-run **Publish tokens-css** workflow (or push a new `v*.*.*` tag).
+Publishes authenticate via **npm Trusted Publishing** — no long-lived `NPM_TOKEN` on GitHub.
+
+**Package settings** on [npmjs.com/package/@intrinsicvalue-llc/tokens-css](https://www.npmjs.com/package/@intrinsicvalue-llc/tokens-css) → **Trusted Publisher** → GitHub Actions:
+
+| Field | Value |
+|--------|--------|
+| Organization or user | `intrinsicvalue-llc` |
+| Repository | `design` |
+| Workflow filename | `publish-tokens-css.yml` |
+| Environment name | *(blank)* |
+| Allowed actions | **Allow npm publish** |
+
+Workflow requirements (already in `.github/workflows/publish-tokens-css.yml`):
+
+- `permissions.id-token: write`
+- Node **24** (npm ≥ 11.5.1)
+- `npm publish --access public` on GitHub-hosted runners
 
 ### If publish fails
 
-1. Confirm `NPM_TOKEN` is set on the design repo.
-2. Confirm the npm org **`intrinsicvalue-llc`** exists and your account can publish scoped packages.
+1. Confirm Trusted Publisher fields match exactly (case-sensitive workflow filename).
+2. Confirm `id-token: write` is set on the workflow.
 3. Manual dispatch: bump `npm/tokens-css/package.json` version first if the version already exists on the registry.
 4. Re-run workflow or push a new tag `v*.*.*`.
 

@@ -34,8 +34,6 @@ jobs:
         working-directory: npm/tokens-css
         run: npm version "${GITHUB_REF#refs/tags/v}" --no-git-tag-version --allow-same-version
 
-      - name: Publish to npm (OIDC; falls back to NPM_TOKEN for bootstrap)
+      - name: Publish to npm (OIDC trusted publishing)
         working-directory: npm/tokens-css
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
