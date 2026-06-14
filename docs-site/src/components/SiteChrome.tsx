@@ -7,6 +7,15 @@ export function SiteHeader({ current, designVersion }: { current?: string; desig
     <header className="sticky top-0 z-50 border-b border-[var(--color-intrinsic-line)] bg-[var(--color-intrinsic-surface)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-5 py-3">
         <div className="flex items-baseline gap-2">
+          <Link
+            href="https://intrinsicvalue.llc"
+            className="text-[13px] font-medium text-[var(--color-intrinsic-muted)] hover:text-[var(--color-intrinsic-fg)]"
+          >
+            Intrinsic Value
+          </Link>
+          <span className="text-[13px] text-[var(--color-intrinsic-line)]" aria-hidden>
+            /
+          </span>
           <Link href="/" className="text-[15px] font-semibold tracking-tight text-[var(--color-intrinsic-fg)]">
             Intrinsic Design
           </Link>
@@ -65,7 +74,15 @@ export function PageShell({
         {children}
       </main>
       <footer className="border-t border-[var(--color-intrinsic-line)] py-8 text-center text-[13px] text-[var(--color-intrinsic-muted)]">
-        Intrinsic Value LLC · design.intrinsicvalue.llc · pattern-first reference
+        <p>
+          <Link href="https://intrinsicvalue.llc" className="hover:text-[var(--color-intrinsic-fg)]">
+            Intrinsic Value LLC
+          </Link>
+          {" · "}
+          <span>design.intrinsicvalue.llc</span>
+          {" · "}
+          <span>pattern-first reference</span>
+        </p>
       </footer>
     </>
   );
