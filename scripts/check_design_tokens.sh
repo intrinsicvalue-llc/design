@@ -10,7 +10,9 @@ node "build.mjs" --check
 required=(
   "tokens/foundation.json"
   "dist/css/foundation.css"
+  "dist/css/foundation.utilities.css"
   "npm/tokens-css/dist/css/foundation.css"
+  "npm/tokens-css/dist/css/foundation.utilities.css"
   "swift/Sources/IntrinsicDesign/IntrinsicFoundation.generated.swift"
   "swift/Package.swift"
   "npm/tokens-css/package.json"

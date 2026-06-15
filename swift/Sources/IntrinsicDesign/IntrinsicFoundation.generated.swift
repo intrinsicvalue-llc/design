@@ -45,6 +45,23 @@ public enum IntrinsicControlSize {
     public static let glassIconSquare: CGFloat = 44
 }
 
+/// Semantic typography roles — maps to Apple Text Styles (Dynamic Type on iOS).
+/// Web/Android: same role names; web uses foundation CSS vars. See patterns/TYPOGRAPHY.md.
+public enum IntrinsicTypography {
+    public static let largeTitle: Font = .largeTitle /// Rare full-screen hero titles; prefer navigation title for most screens
+    public static let title: Font = .title /// Primary screen title in content (when not using navigation bar title)
+    public static let headline: Font = .headline /// List row primary text, card titles, emphasized inline labels
+    public static let body: Font = .body /// Default reading text, descriptions, form values
+    public static let callout: Font = .callout /// Secondary emphasis blocks, callout banners, short intros
+    public static let subheadline: Font = .subheadline /// List row subtitles, supporting sentences under headlines
+    public static let footnote: Font = .footnote /// Timestamps, legal hints, tertiary metadata, error fine print
+    public static let caption: Font = .caption /// Image captions, badge text, compact list secondary lines
+    public static let caption2: Font = .caption2 /// Smallest legible metadata; use sparingly
+    public static let label: Font = .subheadline.weight(.medium) /// Section headers, form field labels, uppercase chrome — not body copy
+}
+
+public typealias TastefulTypography = IntrinsicTypography
+
 // MARK: - Product back-compat typealiases
 public typealias TastefulSpacing = IntrinsicSpacing
 public typealias TastefulRadius = IntrinsicRadius

@@ -11,6 +11,8 @@ Voice is part of the design system. Tokens make UI consistent; these rules make 
 | **Respect** | User agency, opt-in | Guilt, urgency, dark patterns |
 | **Brevity** | Short labels; details on tap | Wall-of-text errors |
 
+Typography roles for labels and fine print: `footnote`, `caption`, `label` in `tokens/foundation.json` — see `patterns/TYPOGRAPHY.md`.
+
 Canonical ethics: `docs/FOUNDATION/ETHICAL_BOUNDARIES.md`
 
 ## Error messages (shape)

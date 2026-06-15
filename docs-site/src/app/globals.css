@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@intrinsic/tokens-css/foundation.css";
+@import "@intrinsic/tokens-css/foundation.utilities.css";
 @import "@intrinsic/tokens-css/intrinsic-www.theme.css";
 @import "@intrinsic/tokens-css/tasteful-web-app.theme.css";
 @import "@intrinsic/tokens-css/tasteful-www.theme.css";

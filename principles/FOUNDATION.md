@@ -12,13 +12,22 @@ Company-wide principles. Product themes (`tasteful`, `keystone`) express persona
 
 ## Token discipline
 
-- Use `IntrinsicSpacing`, `IntrinsicRadius`, `--color-*` semantic variables
+- Use `IntrinsicSpacing`, `IntrinsicRadius`, `IntrinsicTypography`, `--color-*` semantic variables
 - Prefer system semantic colors (`.primary`, `.secondary`) over custom palettes on Apple
 - User accent on Tasteful iOS is intentional; don't hardcode pink in Swift feature code
+
+## Typography
+
+- **Consumer apps:** semantic roles in `tokens/foundation.json` — see `patterns/TYPOGRAPHY.md`
+- **iOS:** `IntrinsicTypography` → Apple Text Styles; Dynamic Type is non-negotiable
+- **Web:** `foundation.utilities.css` `.iv-*` classes; no ad-hoc `text-xs` / `text-sm` in consumer UI
+- **Keystone admin:** theme-scale typography in `keystone.json` (denser, separate ADR tier)
+- **Hierarchy:** de-emphasize with role + `.secondary` / muted color — never shrink body for metadata
 
 ## Agent & CI enforcement
 
 - `.cursor/rules/intrinsic-design-tokens.mdc`
+- `.cursor/rules/swiftui-typography.mdc` (iOS)
 - `.cursor/rules/liquid-glass-ui.mdc` (iOS)
 - `scripts/check_design_tokens.sh`
 

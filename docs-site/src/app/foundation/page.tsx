@@ -10,7 +10,7 @@ export default function FoundationPage() {
     <PageShell
       current="/foundation"
       title="Foundation"
-      description="Company-wide tokens — never fork spacing or status semantics per app."
+      description="Company-wide tokens — spacing, typography roles, status semantics. Never fork per app."
     >
       <FoundationTokens foundation={foundation} />
     </PageShell>

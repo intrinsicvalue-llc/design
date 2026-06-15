@@ -1,0 +1,42 @@
+---
+description: SwiftUI typography — IntrinsicTypography / Text Styles only; no custom point sizes
+globs:
+  - "**/*.swift"
+alwaysApply: false
+---
+
+# SwiftUI typography (Intrinsic Design)
+
+**Source:** `tokens/foundation.json` · `patterns/TYPOGRAPHY.md` · ADR-011
+
+## Use semantic roles
+
+```swift
+import IntrinsicDesign
+
+Text("Title").font(IntrinsicTypography.headline)
+Text("Detail").font(IntrinsicTypography.body)
+Text("2h ago").font(IntrinsicTypography.footnote).foregroundStyle(.secondary)
+```
+
+`IntrinsicTypography` maps to Apple `Font.TextStyle` — Dynamic Type scales automatically.
+
+## Hard bans in feature code
+
+- ❌ `.font(.system(size:))` or raw `CGFloat` point sizes
+- ❌ Custom font files for UI chrome (system fonts only unless ADR exception)
+- ❌ Shrinking `.body` for de-emphasis — use `footnote`, `caption`, or `.secondary`
+
+## Hierarchy
+
+| Surface | Role |
+|---------|------|
+| List row primary | `headline` |
+| List row subtitle | `subheadline` |
+| Timestamp / legal | `footnote` |
+| Section header | `label` |
+| Default paragraph | `body` |
+
+## Keystone / admin
+
+iOS admin surfaces follow the same Text Style rules. Web Keystone uses theme tokens — not `IntrinsicTypography` pixel equivalents.

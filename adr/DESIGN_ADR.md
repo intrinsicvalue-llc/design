@@ -67,6 +67,12 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 **Context:** Private submodule + `GH_SUBMODULE_PAT` broke iOS CI; `NODE_AUTH_TOKEN` on every Vercel project and web CI job created rotating-secret overhead with zero user value. Philosophy, tokens, and ADRs are already public on design.intrinsicvalue.llc.  
 **Consequence:** No `GH_SUBMODULE_PAT`, no `NODE_AUTH_TOKEN` for token installs. Product repos drop `.npmrc` auth. Publish workflow uses **`NPM_TOKEN`** on the design repo only. Supersedes ADR-008 consumption/auth paths; publish registry moves from GitHub Packages to npm.
 
+## ADR-011 — Semantic typography roles, platform-native (2026-06)
+
+**Decision:** Consumer typography uses **semantic role names** in `tokens/foundation.json` (`largeTitle` … `label`). iOS maps roles to `Font.TextStyle` via generated `IntrinsicTypography` (Dynamic Type, no px tokens). Web maps the same roles to CSS vars + `.iv-*` utilities in `foundation.utilities.css`. Dense admin (Keystone) keeps a separate theme scale.  
+**Context:** Agents and product repos reached for archived markdown and ad-hoc `text-xs`/`text-sm` because only font stacks existed at foundation level. Apple HIG fidelity requires system text styles on iOS; web/Android need shared vocabulary without fighting platform type systems.  
+**Consequence:** `patterns/TYPOGRAPHY.md`; `.cursor/rules/swiftui-typography.mdc`; ban `.font(.system(size:))` on iOS and raw Tailwind size steps on consumer web. Parity is **semantic** (role names + hierarchy), not pixel-identical. Android maps roles to Material 3 in product repos until generated artifacts ship.
+
 ---
 
 *Append new ADRs at the bottom. Never delete — supersede with a new ADR that references the old one.*

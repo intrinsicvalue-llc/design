@@ -24,7 +24,7 @@ Company-wide design foundation for every Intrinsic Value product.
 
 | Path | Purpose |
 |------|---------|
-| `tokens/foundation.json` | Spacing, radius, motion, status colors |
+| `tokens/foundation.json` | Spacing, radius, motion, typography roles, status colors |
 | `tokens/themes/*.json` | Per-product accent + semantic colors |
 | `patterns/` | List→Detail, editor sheet, empty state, destructive action |
 | `voice/` | Copy standards, entity names, voice intents |

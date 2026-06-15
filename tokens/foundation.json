@@ -29,7 +29,59 @@
   "typography": {
     "fontStackSans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"SF Pro Display\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
     "fontStackDisplay": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Roboto, sans-serif",
-    "fontStackMono": "ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    "fontStackMono": "ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace",
+    "roles": {
+      "largeTitle": {
+        "use": "Rare full-screen hero titles; prefer navigation title for most screens",
+        "ios": "largeTitle",
+        "web": { "sizePx": 34, "lineHeight": 1.2, "weight": 400, "letterSpacingEm": -0.02 }
+      },
+      "title": {
+        "use": "Primary screen title in content (when not using navigation bar title)",
+        "ios": "title",
+        "web": { "sizePx": 28, "lineHeight": 1.2, "weight": 400, "letterSpacingEm": -0.02 }
+      },
+      "headline": {
+        "use": "List row primary text, card titles, emphasized inline labels",
+        "ios": "headline",
+        "web": { "sizePx": 17, "lineHeight": 1.29, "weight": 600 }
+      },
+      "body": {
+        "use": "Default reading text, descriptions, form values",
+        "ios": "body",
+        "web": { "sizePx": 17, "lineHeight": 1.29, "weight": 400 }
+      },
+      "callout": {
+        "use": "Secondary emphasis blocks, callout banners, short intros",
+        "ios": "callout",
+        "web": { "sizePx": 16, "lineHeight": 1.31, "weight": 400 }
+      },
+      "subheadline": {
+        "use": "List row subtitles, supporting sentences under headlines",
+        "ios": "subheadline",
+        "web": { "sizePx": 15, "lineHeight": 1.33, "weight": 400 }
+      },
+      "footnote": {
+        "use": "Timestamps, legal hints, tertiary metadata, error fine print",
+        "ios": "footnote",
+        "web": { "sizePx": 13, "lineHeight": 1.38, "weight": 400 }
+      },
+      "caption": {
+        "use": "Image captions, badge text, compact list secondary lines",
+        "ios": "caption",
+        "web": { "sizePx": 12, "lineHeight": 1.33, "weight": 400 }
+      },
+      "caption2": {
+        "use": "Smallest legible metadata; use sparingly",
+        "ios": "caption2",
+        "web": { "sizePx": 11, "lineHeight": 1.36, "weight": 400 }
+      },
+      "label": {
+        "use": "Section headers, form field labels, uppercase chrome — not body copy",
+        "ios": { "textStyle": "subheadline", "weight": "medium" },
+        "web": { "sizePx": 15, "lineHeight": 1.33, "weight": 500, "letterSpacingEm": 0.01 }
+      }
+    }
   },
   "colorRole": {
     "info": { "swift": "blue", "web": "#007aff" },

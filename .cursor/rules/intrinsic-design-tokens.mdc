@@ -41,6 +41,23 @@ className="border-[var(--color-tasteful-line)]"
 
 Foundation: `var(--intrinsic-space-md)`, `var(--intrinsic-radius-card)`.
 
+Consumer typography (Tasteful web, intrinsic-www, marketing):
+
+```css
+@import "@intrinsic/tokens-css/foundation.utilities.css";
+```
+
+```tsx
+className="iv-headline"
+className="iv-body text-[var(--color-tasteful-muted)]"
+className="iv-footnote text-[var(--color-tasteful-muted)]"
+className="iv-label"
+```
+
+Swift: `IntrinsicTypography.headline`, `.footnote`, `.label` — see `patterns/TYPOGRAPHY.md`.
+
+Tokens: `--intrinsic-type-body-size` (17px reference), `text-intrinsic-body` in Tailwind v4 `@theme`.
+
 Keystone admin console typography:
 
 ```css
@@ -70,8 +87,9 @@ Tokens: `--keystone-type-body-size` (15px), `text-keystone-body` in Tailwind v4 
 
 - ❌ Raw hex for product semantics in feature code
 - ❌ Magic spacing/radius where tokens exist
+- ❌ Ad-hoc `text-xs` / `text-sm` or `.font(.system(size:))` where typography roles exist
 - ❌ Hand-editing generated CSS or Swift
 
 ## Patterns & copy
 
-`principles/UNIVERSAL.md` · `patterns/` · `voice/ENTITY_NAMES.md` · `adr/DESIGN_ADR.md`
+`principles/UNIVERSAL.md` · `patterns/TYPOGRAPHY.md` · `patterns/` · `voice/ENTITY_NAMES.md` · `adr/DESIGN_ADR.md`

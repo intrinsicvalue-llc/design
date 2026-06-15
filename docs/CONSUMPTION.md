@@ -23,13 +23,14 @@ Package publishes as **`@intrinsicvalue-llc/tokens-css`** on [npm](https://www.n
 **`package.json`:**
 
 ```json
-"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.8"
+"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.9"
 ```
 
 **CSS** (`globals.css`):
 
 ```css
 @import "@intrinsic/tokens-css/foundation.css";
+@import "@intrinsic/tokens-css/foundation.utilities.css";
 @import "@intrinsic/tokens-css/keystone.theme.css";
 ```
 
@@ -93,7 +94,7 @@ Future: publish SPM to a registry and drop the submodule for iOS — not require
 4. Each web product repo bumps:
 
    ```json
-   "@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.8"
+   "@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.9"
    ```
 
 5. **tasteful only:** advance `design/` submodule pointer after token/Swift changes.

@@ -5,6 +5,32 @@ Release history for **Intrinsic Design** and `@intrinsic/tokens-css`.
 Canonical source: `changelog/releases.json`. Store `releasedAt` in UTC with a trailing `Z` (`npm run changelog:now`).
 Versions match git tags on `intrinsicvalue-llc/design`.
 
+## v1.0.9
+
+**Released:** 2026-06-15T04:00:00Z
+
+### Consumer typography roles (ADR-011)
+
+Semantic typography roles in foundation.json — iOS uses IntrinsicTypography (Apple Text Styles + Dynamic Type); web uses foundation.utilities.css .iv-* classes. Same role names across platforms; Keystone admin scale unchanged.
+
+**Added**
+- Foundation typography roles: largeTitle, title, headline, body, callout, subheadline, footnote, caption, caption2, label.
+- foundation.utilities.css — .iv-* semantic type utilities + Tailwind @theme tokens.
+- IntrinsicTypography enum in IntrinsicFoundation.generated.swift (maps to Font.TextStyle).
+- patterns/TYPOGRAPHY.md and Foundation page acceptance specimen on the reference site.
+
+**Documented**
+- ADR-011 — semantic roles, platform-native implementation; two-tier model with Keystone theme scale.
+- principles/FOUNDATION.md typography section; .cursor/rules/swiftui-typography.mdc.
+
+**Migration**
+- Bump @intrinsic/tokens-css to ^1.0.9.
+- Import @intrinsic/tokens-css/foundation.utilities.css after foundation.css in consumer web apps.
+- iOS: use IntrinsicTypography instead of .font(.system(size:)) in feature code.
+- Replace ad-hoc text-xs / text-sm in consumer web UI with .iv-* classes.
+
+---
+
 ## v1.0.8
 
 **Released:** 2026-06-14T18:00:00Z

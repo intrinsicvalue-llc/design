@@ -13,7 +13,7 @@ npm install @intrinsicvalue-llc/tokens-css
 Or in `package.json`:
 
 ```json
-"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.8"
+"@intrinsic/tokens-css": "npm:@intrinsicvalue-llc/tokens-css@^1.0.9"
 ```
 
 No `.npmrc` or auth token required.
@@ -22,6 +22,7 @@ No `.npmrc` or auth token required.
 
 ```css
 @import "@intrinsic/tokens-css/foundation.css";
+@import "@intrinsic/tokens-css/foundation.utilities.css";
 @import "@intrinsic/tokens-css/tasteful-web-app.theme.css";
 ```
 

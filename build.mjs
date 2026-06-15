@@ -56,6 +56,63 @@ function typeVar(prefix, role, prop) {
   return `--${prefix}-type-${role}-${prop}`;
 }
 
+const FOUNDATION_TYPE_PREFIX = "intrinsic";
+
+function foundationTypographyRoles(foundation) {
+  return foundation.typography?.roles ?? {};
+}
+
+function buildTypographyRoleEntries(prefix, roles) {
+  const entries = [];
+  for (const [role, spec] of Object.entries(roles)) {
+    if (role.startsWith("$")) continue;
+    const web = spec.web;
+    if (!web) continue;
+    const slug = camelToKebab(role);
+    entries.push(`  ${typeVar(prefix, slug, "size")}: ${web.sizePx}px;`);
+    entries.push(`  ${typeVar(prefix, slug, "line-height")}: ${web.lineHeight};`);
+    entries.push(`  ${typeVar(prefix, slug, "weight")}: ${web.weight};`);
+    if (web.letterSpacingEm != null) {
+      entries.push(`  ${typeVar(prefix, slug, "letter-spacing")}: ${web.letterSpacingEm}em;`);
+    }
+    entries.push(`  --text-${prefix}-${slug}: ${web.sizePx}px;`);
+    entries.push(`  --text-${prefix}-${slug}--line-height: ${web.lineHeight};`);
+    entries.push(`  --font-weight-${prefix}-${slug}: ${web.weight};`);
+  }
+  return entries;
+}
+
+function buildFoundationUtilitiesCSS(foundation) {
+  const roles = foundationTypographyRoles(foundation);
+  if (Object.keys(roles).length === 0) return null;
+
+  const p = FOUNDATION_TYPE_PREFIX;
+  const lines = [GENERATED_BANNER];
+
+  lines.push("/* Consumer semantic typography — compose with .iv-* instead of text-xs/text-sm */");
+  lines.push("@theme {");
+  for (const entry of buildTypographyRoleEntries(p, roles)) {
+    lines.push(entry);
+  }
+  lines.push("}\n");
+
+  for (const [role, spec] of Object.entries(roles)) {
+    if (role.startsWith("$") || !spec.web) continue;
+    const slug = camelToKebab(role);
+    const className = `iv-${slug}`;
+    lines.push(`.${className} {`);
+    lines.push(`  font-size: var(${typeVar(p, slug, "size")});`);
+    lines.push(`  line-height: var(${typeVar(p, slug, "line-height")});`);
+    lines.push(`  font-weight: var(${typeVar(p, slug, "weight")});`);
+    if (spec.web.letterSpacingEm != null) {
+      lines.push(`  letter-spacing: var(${typeVar(p, slug, "letter-spacing")}, normal);`);
+    }
+    lines.push("}\n");
+  }
+
+  return lines.join("\n");
+}
+
 function buildTypographyThemeEntries(theme) {
   if (!theme.typography) return [];
   const p = theme.cssPrefix;
@@ -206,6 +263,7 @@ function buildThemeCSS(theme) {
 
 function buildFoundationCSS(foundation) {
   const lines = [];
+  const roles = foundationTypographyRoles(foundation);
   lines.push(GENERATED_BANNER);
   lines.push(":root {");
   lines.push(`  --intrinsic-font-sans: ${foundation.typography.fontStackSans};`);
@@ -222,6 +280,9 @@ function buildFoundationCSS(foundation) {
     const slug = key.replace(/Ms$/, "").replace(/([A-Z])/g, "-$1").toLowerCase().replace(/^-/, "");
     lines.push(`  --intrinsic-motion-${slug}: ${ms}ms;`);
   }
+  for (const entry of buildTypographyRoleEntries(FOUNDATION_TYPE_PREFIX, roles)) {
+    lines.push(entry);
+  }
   lines.push("}\n");
   return lines.join("\n");
 }
@@ -233,6 +294,46 @@ const SWIFT_COLOR_MAP = {
   red: ".red",
   secondary: ".secondary",
 };
+
+const SWIFT_FONT_WEIGHT_MAP = {
+  regular: ".regular",
+  medium: ".medium",
+  semibold: ".semibold",
+  bold: ".bold",
+};
+
+function swiftFontExpression(iosSpec) {
+  if (typeof iosSpec === "string") {
+    return `.${iosSpec}`;
+  }
+  const style = iosSpec.textStyle;
+  const weight = iosSpec.weight;
+  if (weight) {
+    const weightExpr = SWIFT_FONT_WEIGHT_MAP[weight] ?? `.${weight}`;
+    return `.${style}.weight(${weightExpr})`;
+  }
+  return `.${style}`;
+}
+
+function buildSwiftTypography(foundation) {
+  const roles = foundationTypographyRoles(foundation);
+  if (Object.keys(roles).length === 0) return "";
+
+  const lines = [];
+  lines.push("/// Semantic typography roles — maps to Apple Text Styles (Dynamic Type on iOS).");
+  lines.push("/// Web/Android: same role names; web uses foundation CSS vars. See patterns/TYPOGRAPHY.md.");
+  lines.push("public enum IntrinsicTypography {");
+  for (const [role, spec] of Object.entries(roles)) {
+    if (role.startsWith("$") || !spec.ios) continue;
+    const expr = swiftFontExpression(spec.ios);
+    const useComment = spec.use ? ` /// ${spec.use}` : "";
+    lines.push(`    public static let ${role}: Font = ${expr}${useComment}`);
+  }
+  lines.push("}\n");
+  lines.push("public typealias TastefulTypography = IntrinsicTypography");
+  lines.push("");
+  return lines.join("\n");
+}
 
 function buildSwift(foundation) {
   const lines = [SWIFT_BANNER, "import SwiftUI\n"];
@@ -268,6 +369,8 @@ function buildSwift(foundation) {
   lines.push(`    /// HIG minimum touch; square so \`.glass\` renders as a circle.`);
   lines.push(`    public static let glassIconSquare: CGFloat = ${foundation.control.glassIconSquare}`);
   lines.push("}\n");
+
+  lines.push(buildSwiftTypography(foundation));
 
   lines.push("// MARK: - Product back-compat typealiases");
   lines.push("public typealias TastefulSpacing = IntrinsicSpacing");
@@ -355,6 +458,11 @@ function main() {
   const outputs = [];
   const foundationCss = buildFoundationCSS(foundation);
   outputs.push(...mirrorCssToNpm("foundation.css", foundationCss));
+
+  const foundationUtilities = buildFoundationUtilitiesCSS(foundation);
+  if (foundationUtilities) {
+    outputs.push(...mirrorCssToNpm("foundation.utilities.css", foundationUtilities));
+  }
 
   for (const theme of themes) {
     const css = buildThemeCSS(theme);

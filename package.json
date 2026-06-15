@@ -1,7 +1,7 @@
 {
   "name": "intrinsic-design",
   "private": true,
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Intrinsic Design — tokens, patterns, and themes for Intrinsic Value apps",
   "scripts": {
     "build": "node build.mjs",

@@ -23,13 +23,29 @@ export type Theme = {
   variants?: Record<string, unknown>;
 };
 
+export type TypographyRoleSpec = {
+  use: string;
+  ios: string | { textStyle: string; weight?: string };
+  web: {
+    sizePx: number;
+    lineHeight: number;
+    weight: number;
+    letterSpacingEm?: number;
+  };
+};
+
 export type Foundation = {
   meta: { name: string; version: string };
   space: Record<string, number>;
   radius: Record<string, number>;
   control: { glassIconSquare: number };
   motion: Record<string, number>;
-  typography: { fontStackSans: string; fontStackDisplay: string };
+  typography: {
+    fontStackSans: string;
+    fontStackDisplay: string;
+    fontStackMono: string;
+    roles?: Record<string, TypographyRoleSpec>;
+  };
   colorRole: Record<string, { swift: string; web: string }>;
 };
 
@@ -63,6 +79,7 @@ export const NAV = [
 ] as const;
 
 export const PATTERNS = [
+  { slug: "typography", file: "TYPOGRAPHY.md", title: "Typography" },
   { slug: "list-detail", file: "LIST_DETAIL.md", title: "List → Detail" },
   { slug: "editor-sheet", file: "EDITOR_SHEET.md", title: "Editor sheet" },
   { slug: "empty-state", file: "EMPTY_STATE.md", title: "Empty state" },
