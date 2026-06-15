@@ -9,7 +9,7 @@ Applies to Tasteful iOS (`AuthenticationView`), product web (`LoginPageClient`),
 1. **Platform HIG beats custom chrome** (`principles/FOUNDATION.md`) — native `Form` fields, editor sheets, toolbar Cancel, swipe-to-dismiss on iOS.
 2. **Sub-tasks are sheets** (`patterns/EDITOR_SHEET.md`) — changing identity, reset password, or any “leave the default” flow is a **modal with Cancel**, not in-place layout morph on the parent.
 3. **Reversible by default** — dismiss sheet = parent state unchanged (saved email chip still there).
-4. **Identifier-first copy** — **Use a Different Email** for every email-change action (same sheet); not “Use Another Account” unless showing a **multi-account list**.
+4. **Identifier-first copy** — read-only email row shows trailing **Change** (opens sheet); VoiceOver / sheet context use **Use a Different Email**; not “Use Another Account” unless showing a **multi-account list**.
 5. **Trust** — legal consent on email + create-account steps only; footnote/`text-sm` secondary tier, not caption/`text-xs`.
 
 ## iOS — screen states
@@ -17,9 +17,9 @@ Applies to Tasteful iOS (`AuthenticationView`), product web (`LoginPageClient`),
 | State | UI | Notes |
 |-------|-----|-------|
 | No saved email | Email field on main + Continue | First launch |
-| Saved email (returning) | Read-only chip + **Use a Different Email** + Continue | `lastAuthEmail` / post sign-out |
-| Different email | **`DifferentEmailEntrySheet`** / web modal — **Use a Different Email** from chip or credentials; Close restores parent |
-| Credentials | Email chip + **Use a Different Email** + passkey or password |
+| Saved email (returning) | Read-only row: email + trailing **Change** + Continue | `lastAuthEmail` / post sign-out |
+| Different email | **`DifferentEmailEntrySheet`** / web modal — **Change** opens sheet; Close restores parent |
+| Credentials | Email row + **Change** + passkey or password |
 | Forgot password | **`ForgotPasswordView`** sheet | Canonical specimen |
 
 ### Dismiss (iOS auth sheets)
@@ -52,7 +52,7 @@ See **`patterns/PRIMARY_ACTION.md`** (universal). Auth-specific specimens below.
 
 | State | UI |
 |-------|-----|
-| Saved email | Chip + **Use a Different Email** |
+| Saved email | Row: email + trailing **Change** |
 | Different email | Modal dialog with **Cancel** + backdrop dismiss |
 | Legal | `APP_URLS` → `https://tasteful.to/terms`, `https://tasteful.to/privacy` |
 
