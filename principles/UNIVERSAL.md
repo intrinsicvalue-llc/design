@@ -8,7 +8,8 @@ See `patterns/LIST_DETAIL.md`
 
 ## 2. Editor sheet / compose
 
-See `patterns/EDITOR_SHEET.md`
+See `patterns/EDITOR_SHEET.md`  
+Auth identity switch: `patterns/AUTH_IDENTIFIER.md`
 
 ## 3. Empty states
 
@@ -21,6 +22,8 @@ See `patterns/DESTRUCTIVE_ACTION.md`
 ## 5. Error presentation
 
 What happened + what to do. No error codes alone. (`voice/COPY_STANDARDS.md`)
+
+Primary buttons: validate on tap — see `patterns/PRIMARY_ACTION.md`
 
 ## 6. Loading
 

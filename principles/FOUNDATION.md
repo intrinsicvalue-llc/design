@@ -35,6 +35,7 @@ Company-wide principles. Product themes (`tasteful`, `keystone`) express persona
 
 **Accessibility beats aesthetics.**  
 **Trust beats engagement.**  
-**Platform HIG beats brand novelty** on navigation chrome and selection controls.
+**Platform HIG beats brand novelty** on navigation chrome and selection controls.  
+**Legible primary actions beat disabled glass** — see `patterns/PRIMARY_ACTION.md`.
 
 Document exceptions in `adr/DESIGN_ADR.md`.

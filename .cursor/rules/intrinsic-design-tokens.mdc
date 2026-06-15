@@ -92,4 +92,4 @@ Tokens: `--keystone-type-body-size` (15px), `text-keystone-body` in Tailwind v4 
 
 ## Patterns & copy
 
-`principles/UNIVERSAL.md` · `patterns/TYPOGRAPHY.md` · `patterns/` · `voice/ENTITY_NAMES.md` · `adr/DESIGN_ADR.md`
+`principles/UNIVERSAL.md` · `patterns/TYPOGRAPHY.md` · `patterns/` (incl. `PRIMARY_ACTION.md`, `AUTH_IDENTIFIER.md`) · `voice/ENTITY_NAMES.md` · `adr/DESIGN_ADR.md`

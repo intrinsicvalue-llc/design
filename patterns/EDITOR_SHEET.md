@@ -39,6 +39,8 @@ NavigationStack {
 
 ## Save behavior
 
-- Disable save while invalid or in-flight
+- **Body primary (glass):** keep visually enabled; validate on tap — `patterns/PRIMARY_ACTION.md`
+- **Toolbar confirmation (checkmark / Done):** may use system disabled when invalid if contrast remains legible
+- **Always** disable during in-flight save
 - On success: dismiss + past-tense confirmation if not obvious from navigation
 - On failure: error shape from `COPY_STANDARDS.md`

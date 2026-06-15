@@ -73,6 +73,12 @@ Add a row when you choose something non-obvious that app #2 or an agent might re
 **Context:** Agents and product repos reached for archived markdown and ad-hoc `text-xs`/`text-sm` because only font stacks existed at foundation level. Apple HIG fidelity requires system text styles on iOS; web/Android need shared vocabulary without fighting platform type systems.  
 **Consequence:** `patterns/TYPOGRAPHY.md`; `.cursor/rules/swiftui-typography.mdc`; ban `.font(.system(size:))` on iOS and raw Tailwind size steps on consumer web. Parity is **semantic** (role names + hierarchy), not pixel-identical. Android maps roles to Material 3 in product repos until generated artifacts ship.
 
+## ADR-012 — Primary actions validate on tap (iOS 26 glass) (2026-06)
+
+**Decision:** Do not disable `.glassProminent` body primaries for incomplete form state. Validate on tap; inline footnote errors. Disable only in-flight.  
+**Context:** Disabled glass on auth and sheets was illegible on device; `EDITOR_SHEET.md` previously said “disable save while invalid.” iOS 26 Liquid Glass exacerbates contrast loss.  
+**Consequence:** `patterns/PRIMARY_ACTION.md`; `patterns/AUTH_IDENTIFIER.md`; `EDITOR_SHEET.md` save behavior updated; Tasteful `AuthenticationView` specimens.
+
 ---
 
 *Append new ADRs at the bottom. Never delete — supersede with a new ADR that references the old one.*
