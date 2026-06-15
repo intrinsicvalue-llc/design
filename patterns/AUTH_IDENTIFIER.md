@@ -17,7 +17,8 @@ Applies to Tasteful iOS (`AuthenticationView`), product web (`LoginPageClient`),
 | State | UI | Notes |
 |-------|-----|-------|
 | No saved email | Email field on main + Continue | First launch |
-| Saved email (returning) | Read-only row: email + trailing **Change** + Continue | `lastAuthEmail` / post sign-out |
+| Saved email (returning) | Read-only row: email + trailing **Change** + Continue | First launch / email step only |
+| Post sign-out | **Credentials** — passkey-first when offered + **Use Password Instead**; email row + **Change**; no auto Face ID | `preferIdentifierStepOnNextAuth` |
 | Different email | **`DifferentEmailEntrySheet`** / web modal — **Change** opens sheet; Close restores parent |
 | Credentials | Email row + **Change** + passkey or password |
 | Forgot password | **`ForgotPasswordView`** sheet | Canonical specimen |
@@ -62,4 +63,4 @@ See **`patterns/PRIMARY_ACTION.md`** (universal). Auth-specific specimens below.
 - [ ] Sub-task dismiss restores parent without data loss
 - [ ] Copy synced iOS ↔ web (`AuthCopy` / `AUTH_COPY`)
 - [ ] No archive `DESIGN_SYSTEM.md` — Intrinsic Design repo + live site only
-- [ ] Device test: sign-out → chip → different email → Cancel → chip unchanged
+- [ ] Device test: sign-out → passkey-first credentials → **Change** → dismiss → email restored
