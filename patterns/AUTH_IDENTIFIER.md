@@ -18,9 +18,9 @@ Applies to Tasteful iOS (`AuthenticationView`), product web (`LoginPageClient`),
 |-------|-----|-------|
 | No saved email | Email field on main + Continue | First launch |
 | Saved email (returning) | Read-only row: email + trailing **Change** + Continue | First launch / email step only |
-| Post sign-out | **Credentials** — passkey-first when offered + **Use Password Instead**; email row + **Change**; no auto Face ID | `preferIdentifierStepOnNextAuth` |
+| Post sign-out | **Credentials** — passkey-first when account has enrolled passkeys + **Use Password Instead**; password-first when none; email row + **Change**; no auto Face ID | `preferIdentifierStepOnNextAuth` + `shouldUsePasskeyFirst` |
 | Different email | **`DifferentEmailEntrySheet`** / web modal — **Change** opens sheet; Close restores parent |
-| Credentials | Email row + **Change** + passkey or password |
+| Credentials | Email row + **Change** + passkey (when enrolled) or password; password screen shows **Sign In with Passkey** only when passkeys exist — direct ceremony, no layout swap |
 | Forgot password | **`ForgotPasswordView`** sheet | Canonical specimen |
 
 ### Dismiss (iOS auth sheets)
