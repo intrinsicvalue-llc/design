@@ -44,6 +44,8 @@ private func submit() {
 ```
 
 - Inline errors: `.footnote`, `.red` or semantic error role
+- **Placement:** directly under the field — `Section` footer in `Form`; grouped custom fields use a `VStack` footnote below the control (never between field block and primary button)
+- VoiceOver: field `accessibilityHint` + `UIAccessibility.post(.announcement)` on submit failure
 - Shape: `voice/COPY_STANDARDS.md` (what happened + what to do)
 
 ## Web
