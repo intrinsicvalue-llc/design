@@ -33,10 +33,23 @@ Applies to Tasteful iOS (`AuthenticationView`), product web (`LoginPageClient`),
 
 See **`patterns/PRIMARY_ACTION.md`** (universal). Auth-specific specimens below.
 
+### Main screen layout (canonical)
+
+One root **`Form`** — the only scroll container on `AuthenticationView`:
+
+1. **Hero** — first `Section` row, `.listRowBackground(.clear)`, centered (`frame(maxWidth: .infinity)`)
+2. **Fields** — `authFormSections` (native grouped rows)
+3. **Actions** — glass Continue / Sign In in transparent list rows (not `safeAreaInset`, not sibling `VStack`)
+4. **Legal** — `Section` footer on email + create-account steps
+
+Simulators can lie; **device-test** after any auth layout change.
+
 ### Hard bans (iOS)
 
 - ❌ `.toolbarRole(.editor)` on single-screen dismiss-only sheets — editor role expects **Cancel + confirmation** in the toolbar; otherwise iOS 26 may show spurious back chrome beside Cancel
 - ❌ `Form` inside `ScrollView` on auth screens — email, password, and create-account fields collapse to zero height on device
+- ❌ Sibling `VStack` + `Form` + `.fixedSize(vertical:)` on the main auth screen — Form reports zero height; fields disappear on device
+- ❌ `safeAreaInset` pinning Continue — fights natural auth flow; CTA belongs in-form after fields
 - ❌ Morph main auth layout when user changes email — **always** sheet/modal via **Use a Different Email**
 - ❌ Hand-built rounded `TextField` chrome when `Form` works (use Form **inside sheet**; main email step may use plain field only when Form-in-ScrollView collapses — prefer chip + sheet instead)
 - ❌ Skinny text-only “Back to …” as the only escape from a sub-task
